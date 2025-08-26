@@ -312,7 +312,7 @@
             <div class="villa_location_detail">
                 <h3>Detail Lokasi</h3>
                 <p>
-                    Jalan Pantai Cemagi, Canggu, Bali – dekat dengan Pantai Berawa dan Pura Tanah Lot.
+                    Jalan Pantai Cemagi, Canggu, Bali - dekat dengan Pantai Berawa dan Pura Tanah Lot.
                 </p>
                 <div class="map-container">
                     <iframe 
