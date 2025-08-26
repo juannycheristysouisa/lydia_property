@@ -270,70 +270,75 @@ body {
     transform: translateY(-2px);
 }
 
-/* ==== DETAIL PAGE STYLE ==== */
-
-/* Struktur umum halaman */
+/* ===================================
+   DETAIL PAGE STYLE (Updated)
+=================================== */
 .detail_section {
-    padding: 100px 20px 60px;
-    background-color: #fafafa;
+    padding: 120px 20px 80px;
+    background: linear-gradient(to bottom, #f7f9fb, #ffffff);
     font-family: "Lato", sans-serif;
 }
 
+/* Kontainer utama */
 .detail_container {
-    max-width: 900px;
+    max-width: 950px;
     margin: 0 auto;
     background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+    padding: 45px 40px;
+    transition: 0.3s ease;
 }
 
-/* Menyembunyikan semua elemen detail properti yang memiliki class ini */
-.property-detail {
-    display: none; /* INI SUDAH BENAR! */
+.detail_container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
-/* Nama & Lokasi Villa */
+/* Nama dan lokasi properti */
 .villa_name {
-    font-size: 1.9rem;
+    font-size: 2.2rem;
     font-weight: 700;
     color: #1d3a4a;
     text-align: center;
+    margin-bottom: 5px;
 }
 
 .villa_location {
     text-align: center;
-    color: #555;
+    color: #777;
+    font-size: 1rem;
     margin-bottom: 30px;
 }
 
-/* Gambar utama / slideshow */
+/* Gambar utama properti */
 .detail_image {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 14px;
     overflow: hidden;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+    position: relative;
 }
 
 .detail_image img {
-    width: 75%;
+    width: 100%;
     height: auto;
-    border-radius: 12px;
-    display: block;
+    border-radius: 14px;
     object-fit: cover;
-    margin: 0 auto;
+    display: block;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Deskripsi Profil */
+/* Deskripsi properti */
 .villa_description {
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .villa_description h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 700;
+    color: #1d3a4a;
     margin-bottom: 10px;
-    color: #222;
 }
 
 .villa_description p {
@@ -344,21 +349,27 @@ body {
 
 /* Fasilitas */
 .villa_facilities {
-    margin-top: 40px;
-    margin-bottom: 60px; /* lebih longgar */
+    margin: 40px 0;
+}
+
+.villa_facilities h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1d3a4a;
+    margin-bottom: 20px;
 }
 
 .villa_facilities ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px 20px;
     list-style: none;
     padding: 0;
 }
 
 .villa_facilities li {
-    font-size: 0.95rem;
-    color: #444;
+    font-size: 1rem;
+    color: #333;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -366,83 +377,17 @@ body {
 
 .villa_facilities i {
     color: #1d3a4a;
-    font-size: 1.2rem;
-}
-
-/* Detail Lokasi */
-.villa_location_detail {
-    margin-bottom: 30px;
-}
-
-.villa_location_detail h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: #222;
-}
-
-.villa_location_detail p {
-    color: #444;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-/* Maps */
-.map-container {
-    width: 100%;
-    max-width: 500px; /* kamu bisa ubah jadi 400px, 350px, dll */
-    height: 250px;
-    border-radius: 12px;
-    overflow: hidden;
-    margin-top: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.map-container iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-/* Harga */
-.price_box {
-    text-align: left;
-    margin-top: 25px;
-}
-
-.price_box h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-}
-
-.villa_price {
     font-size: 1.3rem;
-    font-weight: 800;
-    color: #e63946;
 }
 
-.villa_price span {
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: gray;
-}
-
-.price_note {
-    color: #555;
-    font-size: 0.9rem;
-    margin-top: 5px;
-}
-
-/* CTA - Pesan Sekarang */
+/* Harga dan CTA */
 .villa_actions {
-    margin: 50px auto 0;
     text-align: center;
     background: #fff8e6;
-    padding: 25px 20px;
     border-radius: 16px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    max-width: 700px;
+    padding: 30px 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-top: 50px;
 }
 
 .villa_actions p {
@@ -452,31 +397,58 @@ body {
 }
 
 .villa_actions h3 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: #e63946;
+    font-weight: 800;
     margin-bottom: 15px;
 }
 
 .villa_actions span {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: gray;
-    margin-bottom: 15px;
 }
 
 .book_btn {
     background: #1d3a4a;
     color: white;
     border: none;
-    padding: 12px 30px;
-    border-radius: 8px;
+    padding: 12px 32px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 1rem;
-    transition: 0.3s ease;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
 .book_btn:hover {
-    background: #1d3a4a;
+    background: #2e4f61;
+    transform: translateY(-2px);
 }
+
+/* ===== Responsive untuk mobile ===== */
+@media (max-width: 768px) {
+    .detail_container {
+        padding: 25px 20px;
+    }
+
+    .villa_name {
+        font-size: 1.6rem;
+    }
+
+    .villa_description p {
+        font-size: 0.95rem;
+    }
+
+    .villa_facilities li {
+        font-size: 0.9rem;
+    }
+
+    .book_btn {
+        font-size: 0.95rem;
+        padding: 10px 24px;
+    }
+}
+
 
 /* Footer */
 .footer {

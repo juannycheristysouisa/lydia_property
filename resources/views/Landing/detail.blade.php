@@ -134,14 +134,6 @@
             </div>
         </div>
 
-    {{-- =================== DEFAULT (JIKA ID TIDAK ADA) =================== --}}
-    @else
-        <div class="container text-center py-5">
-            <h3>Properti tidak ditemukan 😢</h3>
-            <a href="{{ route('landing.index') }}" class="btn btn-primary mt-3">Kembali ke Beranda</a>
-        </div>
-    @endif
-
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
