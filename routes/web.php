@@ -15,6 +15,6 @@ use App\Http\Controllers\LandingController;
 */
 
 Route::get('/', [LandingController::class, 'index'])->name('landing.index');
-Route::get('/detail', [LandingController::class, 'detail'])->name('landing.detail');
-Route::get('/property', [LandingController::class, 'property'])->name('property');
-Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
+Route::get('/detail/{id}', [LandingController::class, 'detail'])->name('landing.detail');
+Route::get('/property', [LandingController::class, 'property'])->name('landing.property');
+Route::get('/contact', [LandingController::class, 'contact'])->name('landing.contact');
