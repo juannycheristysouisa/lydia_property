@@ -54,70 +54,71 @@
     <!-- Properties Section -->
     <section class="property" id="property">
         <div class="section_container property_container">
-            <h2 class="section_header">Property in Your Area</h2>
+    <h2 class="section_header">Property in Your Area</h2>
 
-            <div class="property_grid">
-                <!-- CARD 1 -->
-                <div class="property_card">
-                    <img src="images/villa-cannary-1.jpg" alt="Villa Cannary" />
-                    <div class="property_info">
-                        <h4>Villa Cannary</h4>
-                        <p class="location">Bandung, Indonesia</p>
-                        <p class="price">Rp 800.000<span>/night</span></p>
-                        <div class="property_details">
-                            <span><i class="ri-hotel-bed-line"></i> 4 Kamar</span>
-                            <span><i class="ri-shower-line"></i> 3 Kamar Mandi</span>
-                        </div>
-                        <a href="{{ route('landing.detail') }}" class="detail_btn">Lihat Detail</a>
-                    </div>
+    <div class="property_grid">
+        <!-- CARD 1 -->
+        <div class="property_card">
+            <img src="images/villa-cannary-1.jpg" alt="Villa Cannary" />
+            <div class="property_info">
+                <h4>Villa Cannary</h4>
+                <p class="location">Bandung, Indonesia</p>
+                <p class="price">Rp 800.000<span>/night</span></p>
+                <div class="property_details">
+                    <span><i class="ri-hotel-bed-line"></i> 4 Kamar</span>
+                    <span><i class="ri-shower-line"></i> 3 Kamar Mandi</span>
                 </div>
-
-                <!-- CARD 2 -->
-                <div class="property_card">
-                    <img src="images/villa-eldi-cemagi-1.jpg" alt="Villa Eldy Cemagi" />
-                    <div class="property_info">
-                        <h4>Villa Eldy Cemagi</h4>
-                        <p class="location">Canggu, Indonesia</p>
-                        <p class="price">Rp 1.200.000<span>/night</span></p>
-                        <div class="property_details">
-                            <span><i class="ri-hotel-bed-line"></i> 5 Kamar</span>
-                            <span><i class="ri-shower-line"></i> 3 Kamar Mandi</span>
-                        </div>
-                        <a href="{{ route('landing.detail') }}" class="detail_btn">Lihat Detail</a>
-                    </div>
-                </div>
-
-                <!-- CARD 3 -->
-                <div class="property_card">
-                    <img src="images/villa-umaberawa-1.jpg" alt="Villa Umaberawa" />
-                    <div class="property_info">
-                        <h4>Villa Umaberawa</h4>
-                        <p class="location">Bandung, Indonesia</p>
-                        <p class="price">Rp 950.000<span>/night</span></p>
-                        <div class="property_details">
-                            <span><i class="ri-hotel-bed-line"></i> 4 Kamar</span>
-                            <span><i class="ri-shower-line"></i> 3 Kamar Mandi</span>
-                        </div>
-                        <a href="{{ route('landing.detail') }}" class="detail_btn">Lihat Detail</a>
-                    </div>
-                </div>
-
-                <!-- CARD 4 -->
-                <div class="property_card">
-                    <img src="images/apartemen-moiserenity-1.jpg" alt="Apartemen Moiserenity" />
-                    <div class="property_info">
-                        <h4>Apartemen Moiserenity</h4>
-                        <p class="location">Kelapa Gading, Indonesia</p>
-                        <p class="price">Rp 950.000<span>/night</span></p>
-                        <div class="property_details">
-                            <span><i class="ri-hotel-bed-line"></i> 4 Kamar</span>
-                            <span><i class="ri-shower-line"></i> 3 Kamar Mandi</span>
-                        </div>
-                        <a href="{{ route('landing.detail') }}" class="detail_btn">Lihat Detail</a>
-                    </div>
-                </div>
+                <a href="{{ route('landing.detail', ['id' => 'cannary']) }}" class="detail_btn">Lihat Detail</a>
             </div>
         </div>
+
+        <!-- CARD 2 -->
+        <div class="property_card">
+            <img src="images/villa-eldi-cemagi-1.jpg" alt="Villa Eldy Cemagi" />
+            <div class="property_info">
+                <h4>Villa Eldy Cemagi</h4>
+                <p class="location">Canggu, Indonesia</p>
+                <p class="price">Rp 1.200.000<span>/night</span></p>
+                <div class="property_details">
+                    <span><i class="ri-hotel-bed-line"></i> 5 Kamar</span>
+                    <span><i class="ri-shower-line"></i> 3 Kamar Mandi</span>
+                </div>
+                <a href="{{ route('landing.detail', ['id' => 'eldy']) }}" class="detail_btn">Lihat Detail</a>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="property_card">
+            <img src="images/villa-umaberawa-1.jpg" alt="Villa Umaberawa" />
+            <div class="property_info">
+                <h4>Villa Umaberawa</h4>
+                <p class="location">Bandung, Indonesia</p>
+                <p class="price">Rp 950.000<span>/night</span></p>
+                <div class="property_details">
+                    <span><i class="ri-hotel-bed-line"></i> 4 Kamar</span>
+                    <span><i class="ri-shower-line"></i> 3 Kamar Mandi</span>
+                </div>
+                <a href="{{ route('landing.detail', ['id' => 'umaberawa']) }}" class="detail_btn">Lihat Detail</a>
+            </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="property_card">
+            <img src="images/apartemen-moiserenity-1.jpg" alt="Apartemen Moiserenity" />
+            <div class="property_info">
+                <h4>Apartemen Moiserenity</h4>
+                <p class="location">Kelapa Gading, Indonesia</p>
+                <p class="price">Rp 950.000<span>/night</span></p>
+                <div class="property_details">
+                    <span><i class="ri-hotel-bed-line"></i> 4 Kamar</span>
+                    <span><i class="ri-shower-line"></i> 3 Kamar Mandi</span>
+                </div>
+                <a href="{{ route('landing.detail', ['id' => 'moiserenity']) }}" class="detail_btn">Lihat Detail</a>
+            </div>
+        </div>
+    </div>
+</div>
+
     </section>
 
     <!-- Gallery Section -->
