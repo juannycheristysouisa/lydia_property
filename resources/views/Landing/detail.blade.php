@@ -120,9 +120,26 @@
                 <img src="{{ asset('images/villa-eldi-cemagi-1.jpg') }}" alt="Villa Eldy Cemagi" />
             </div>
 
+             <div class="view_photos">
+                <button id="viewPhotosBtn-eldy">Lihat Semua Foto</button> 
+            </div>
+
+             <div id="photoModal-eldy" class="modal">
+                <div class="modal-content">
+                    <span class="close-eldy">×</span>
+                    <div class="photo-gallery">
+                        <img src="assets/villa-eldi-cemagi-2.jpg" alt="Villa Eldy Cemagi 2" /> 
+                        <img src="assets/villa-eldi-cemagi-3.jpg" alt="Villa Eldy Cemagi 3" /> 
+                        <img src="assets/villa-cannary-7.jpg" alt="Villa Cannary 6" />
+                    </div>
+                </div>
+            </div>
+
             <div class="villa_description">
                 <h3>Profil Villa</h3>
-                <p>Villa Eldy Cemagi terletak di kawasan Canggu, Bali. Villa modern dengan pemandangan sawah yang indah.</p>
+                <p>
+                    Villa Eldy Cemagi terletak di kawasan Canggu, Bali. Villa modern dengan pemandangan sawah yang indah. Dirancang untuk liburan santai dengan kolam renang pribadi dan dekorasi mewah.
+                </p>
             </div>
 
             <div class="villa_facilities">
@@ -131,7 +148,36 @@
                     <li><i class="ri-hotel-bed-line"></i> 5 Kamar Tidur</li>
                     <li><i class="ri-water-flash-line"></i> Kolam Renang Infinity</li>
                     <li><i class="ri-wifi-line"></i> Wi-Fi Super Cepat</li>
+                    <li><i class="ri-parking-box-line"></i> Area Parkir</li>
+                    <li><i class="ri-restaurant-line"></i> Dapur Lengkap</li>
+                    <li><i class="ri-service-line"></i> Layanan Kebersihan Harian</li>
+                    <li><i class="ri-landscape-line"></i> Pemandangan Sawah</li>
                 </ul>
+            </div>
+
+            <div class="villa_location_detail">
+                <h3>Detail Lokasi</h3>
+                <p>
+                    Jalan Pantai Cemagi, Canggu, Bali – dekat dengan Pantai Berawa dan Pura Tanah Lot.
+                </p>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4874.873266765303!2d107.57933957587457!3d-6.793958566447069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e19240d21877%3A0xe580b95ef9006921!2sVilla%20Cannary!5e1!3m2!1sen!2sid!4v1755442929440!5m2!1sen!2sid" 
+                        width="600" 
+                        height="450" 
+                        style="border:0; border-radius: 8px;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="price_box">
+                <h3>Harga</h3>
+                <p class="villa_price">Rp 1.200.000<span>/night</span></p> <p class="price_note">
+                    Termasuk: Kolam renang, WiFi, dapur, air mineral, dan area parkir.
+                </p>
             </div>
 
             <div class="villa_actions">
@@ -151,18 +197,64 @@
                 <img src="{{ asset('images/villa-umaberawa-1.jpg') }}" alt="Villa Umaberawa" />
             </div>
 
-            <div class="villa_description">
-                <h3>Profil Villa</h3>
-                <p>Villa Umaberawa terletak di kawasan Bandung, cocok untuk keluarga besar atau acara spesial.</p>
+            <div class="view_photos">
+                <button id="viewPhotosBtn-eldy">Lihat Semua Foto</button> 
             </div>
 
-            <div class="villa_facilities">
+            <div id="photoModal-eldy" class="modal">
+                <div class="modal-content">
+                    <span class="close-eldy">×</span>
+                    <div class="photo-gallery">
+                        <img src="assets/villa-eldi-cemagi-2.jpg" alt="Villa Eldy Cemagi 2" /> 
+                        <img src="assets/villa-eldi-cemagi-3.jpg" alt="Villa Eldy Cemagi 3" /> 
+                        <img src="assets/villa-cannary-7.jpg" alt="Villa Cannary 6" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="villa_description">
+                <h3>Profil Villa</h3>
+                <p>
+                    Villa Eldy Cemagi terletak di kawasan Canggu, Bali. Villa modern dengan pemandangan sawah yang indah. Dirancang untuk liburan santai dengan kolam renang pribadi dan dekorasi mewah.
+                </p>
+            </div>
+
+             <div class="villa_facilities">
                 <h3>Fasilitas</h3>
                 <ul>
-                    <li><i class="ri-hotel-bed-line"></i> 6 Kamar Tidur</li>
-                    <li><i class="ri-water-flash-line"></i> Kolam Renang</li>
-                    <li><i class="ri-wifi-line"></i> Wi-Fi Gratis</li>
+                    <li><i class="ri-hotel-bed-line"></i> 5 Kamar Tidur</li>
+                    <li><i class="ri-water-flash-line"></i> Kolam Renang Infinity</li>
+                    <li><i class="ri-wifi-line"></i> Wi-Fi Super Cepat</li>
+                    <li><i class="ri-parking-box-line"></i> Area Parkir</li>
+                    <li><i class="ri-restaurant-line"></i> Dapur Lengkap</li>
+                    <li><i class="ri-service-line"></i> Layanan Kebersihan Harian</li>
+                    <li><i class="ri-landscape-line"></i> Pemandangan Sawah</li>
                 </ul>
+            </div>
+
+            <div class="villa_location_detail">
+                <h3>Detail Lokasi</h3>
+                <p>
+                    Jalan Pantai Cemagi, Canggu, Bali – dekat dengan Pantai Berawa dan Pura Tanah Lot.
+                </p>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4874.873266765303!2d107.57933957587457!3d-6.793958566447069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e19240d21877%3A0xe580b95ef9006921!2sVilla%20Cannary!5e1!3m2!1sen!2sid!4v1755442929440!5m2!1sen!2sid" 
+                        width="600" 
+                        height="450" 
+                        style="border:0; border-radius: 8px;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="price_box">
+                <h3>Harga</h3>
+                <p class="villa_price">Rp 1.200.000<span>/night</span></p> <p class="price_note">
+                    Termasuk: Kolam renang, WiFi, dapur, air mineral, dan area parkir.
+                </p>
             </div>
 
             <div class="villa_actions">
@@ -182,18 +274,64 @@
                 <img src="{{ asset('images/apartemen-moiserenity-1.jpg') }}" alt="Apartemen Moiserenity" />
             </div>
 
+            <div class="view_photos">
+                <button id="viewPhotosBtn-eldy">Lihat Semua Foto</button> 
+            </div>
+
+             <div id="photoModal-eldy" class="modal">
+                <div class="modal-content">
+                    <span class="close-eldy"></span>
+                    <div class="photo-gallery">
+                        <img src="assets/villa-eldi-cemagi-2.jpg" alt="Villa Eldy Cemagi 2" /> 
+                        <img src="assets/villa-eldi-cemagi-3.jpg" alt="Villa Eldy Cemagi 3" /> 
+                        <img src="assets/villa-cannary-7.jpg" alt="Villa Cannary 6" />
+                    </div>
+                </div>
+            </div>
+
             <div class="villa_description">
-                <h3>Profil Apartemen</h3>
-                <p>Apartemen Moiserenity terletak di Kelapa Gading, Jakarta, dengan fasilitas lengkap dan akses strategis.</p>
+                <h3>Profil Villa</h3>
+                <p>
+                    Villa Eldy Cemagi terletak di kawasan Canggu, Bali. Villa modern dengan pemandangan sawah yang indah. Dirancang untuk liburan santai dengan kolam renang pribadi dan dekorasi mewah.
+                </p>
             </div>
 
             <div class="villa_facilities">
                 <h3>Fasilitas</h3>
                 <ul>
-                    <li><i class="ri-hotel-bed-line"></i> 3 Kamar Tidur</li>
-                    <li><i class="ri-water-flash-line"></i> Kolam Renang Komunal</li>
-                    <li><i class="ri-wifi-line"></i> Wi-Fi Gratis</li>
+                    <li><i class="ri-hotel-bed-line"></i> 5 Kamar Tidur</li>
+                    <li><i class="ri-water-flash-line"></i> Kolam Renang Infinity</li>
+                    <li><i class="ri-wifi-line"></i> Wi-Fi Super Cepat</li>
+                    <li><i class="ri-parking-box-line"></i> Area Parkir</li>
+                    <li><i class="ri-restaurant-line"></i> Dapur Lengkap</li>
+                    <li><i class="ri-service-line"></i> Layanan Kebersihan Harian</li>
+                    <li><i class="ri-landscape-line"></i> Pemandangan Sawah</li>
                 </ul>
+            </div>
+
+            <div class="villa_location_detail">
+                <h3>Detail Lokasi</h3>
+                <p>
+                    Jalan Pantai Cemagi, Canggu, Bali – dekat dengan Pantai Berawa dan Pura Tanah Lot.
+                </p>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4874.873266765303!2d107.57933957587457!3d-6.793958566447069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e19240d21877%3A0xe580b95ef9006921!2sVilla%20Cannary!5e1!3m2!1sen!2sid!4v1755442929440!5m2!1sen!2sid" 
+                        width="600" 
+                        height="450" 
+                        style="border:0; border-radius: 8px;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="price_box">
+                <h3>Harga</h3>
+                <p class="villa_price">Rp 1.200.000<span>/night</span></p> <p class="price_note">
+                    Termasuk: Kolam renang, WiFi, dapur, air mineral, dan area parkir.
+                </p>
             </div>
 
             <div class="villa_actions">
