@@ -17,9 +17,9 @@ class LandingController extends Controller
     }
 
     // Halaman detail property
-    public function detail($id)
+    public function detail()
 {
-    return view('Landing.detail', compact('id'));
+    return view('Landing.detail');
 }
 
 
