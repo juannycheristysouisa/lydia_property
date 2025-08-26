@@ -5,8 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
-    <!-- Remix Icon -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap"
         rel="stylesheet">
@@ -41,7 +39,6 @@
                     <span></span>
                 </div>
             </div>
-            </div>
         </nav>
     </header>
 
@@ -65,13 +62,13 @@
                     <img src="images/villa-cannary-1.jpg" alt="Villa Cannary" />
                     <div class="property_info">
                         <h4>Villa Cannary</h4>
-                        <p class="location">Bali, Indonesia</p>
+                        <p class="location">Bandung, Indonesia</p>
                         <p class="price">Rp 800.000<span>/night</span></p>
                         <div class="property_details">
                             <span><i class="ri-hotel-bed-line"></i> 4 Kamar</span>
                             <span><i class="ri-shower-line"></i> 3 Kamar Mandi</span>
                         </div>
-                        <a href="{{ route('detail') }}" class="detail_btn">Lihat Detail</a>
+                        <a href="{{ route('landing.detail') }}" class="detail_btn">Lihat Detail</a>
                     </div>
                 </div>
 
@@ -86,7 +83,7 @@
                             <span><i class="ri-hotel-bed-line"></i> 5 Kamar</span>
                             <span><i class="ri-shower-line"></i> 3 Kamar Mandi</span>
                         </div>
-                        <a href="{{ route('detail') }}" class="detail_btn">Lihat Detail</a>
+                        <a href="{{ route('landing.detail') }}" class="detail_btn">Lihat Detail</a>
                     </div>
                 </div>
 
@@ -95,13 +92,13 @@
                     <img src="images/villa-umaberawa-1.jpg" alt="Villa Umaberawa" />
                     <div class="property_info">
                         <h4>Villa Umaberawa</h4>
-                        <p class="location">Seminyak, Indonesia</p>
+                        <p class="location">Bandung, Indonesia</p>
                         <p class="price">Rp 950.000<span>/night</span></p>
                         <div class="property_details">
                             <span><i class="ri-hotel-bed-line"></i> 4 Kamar</span>
                             <span><i class="ri-shower-line"></i> 3 Kamar Mandi</span>
                         </div>
-                        <a href="{{ route('detail') }}" class="detail_btn">Lihat Detail</a>
+                        <a href="{{ route('landing.detail') }}" class="detail_btn">Lihat Detail</a>
                     </div>
                 </div>
 
@@ -110,108 +107,96 @@
                     <img src="images/apartemen-moiserenity-1.jpg" alt="Apartemen Moiserenity" />
                     <div class="property_info">
                         <h4>Apartemen Moiserenity</h4>
-                        <p class="location">Seminyak, Indonesia</p>
+                        <p class="location">Kelapa Gading, Indonesia</p>
                         <p class="price">Rp 950.000<span>/night</span></p>
                         <div class="property_details">
                             <span><i class="ri-hotel-bed-line"></i> 4 Kamar</span>
                             <span><i class="ri-shower-line"></i> 3 Kamar Mandi</span>
                         </div>
-                        <a href="{{ route('detail') }}" class="detail_btn">Lihat Detail</a>
+                        <a href="{{ route('landing.detail') }}" class="detail_btn">Lihat Detail</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Gallery Section -->
     <section class="inspiration">
         <h2 class="section_header">Gallery Property</h2>
         <p class="section_description">
-            view our hand-picked Property destinations
+            View our hand-picked property destinations
         </p>
         <div class="inspiration_wrapper">
             <div class="inspiration_card">
-                <img src="images/villa-cannary-2.jpg" alt="inspiration" />
-                <h4>Bandung</h4>
-                <p>canggu</p>
+                <img src="images/villa-cannary-2.jpg" alt="Villa Cannary Interior" />
+                <h4>Villa Cannary</h4>
+                <p>Bandung</p>
             </div>
 
             <div class="inspiration_card">
-                <img src="images/villa-cannary-3.jpg" alt="inspiration" />
-                <h4>Rome</h4>
-                <p>Italy</p>
+                <img src="images/villa-cannary-3.jpg" alt="Villa Cannary Pool" />
+                <h4>Villa Cannary</h4>
+                <p>Bandung</p>
             </div>
 
             <div class="inspiration_card">
-                <img src="images/villa-cannary-5.jpg" alt="inspiration" />
-                <h4>Paris</h4>
-                <p>France</p>
+                <img src="images/villa-cannary-5.jpg" alt="Villa Cannary View" />
+                <h4>Villa Cannary</h4>
+                <p>Bandung</p>
             </div>
 
             <div class="inspiration_card">
-                <img src="images/villa-eldi-cemagi-4.jpg" alt="inspiration" />
-                <h4>santorini</h4>
-                <p>Greece</p>
+                <img src="images/villa-eldi-cemagi-4.jpg" alt="Villa Eldy Cemagi" />
+                <h4>Villa Eldy Cemagi</h4>
+                <p>Canggu</p>
             </div>
 
             <div class="inspiration_card">
-                <img src="images/villa-umaberawa-1.jpg" alt="inspiration" />
-                <h4>Beijing</h4>
-                <p>china</p>
+                <img src="images/villa-umaberawa-1.jpg" alt="Villa Umaberawa" />
+                <h4>Villa Umaberawa</h4>
+                <p>Bandung</p>
             </div>
 
             <div class="inspiration_card">
-                <img src="images/villa-cannary-2.jpg" alt="inspiration" />
-                <h4>London</h4>
-                <p>England</p>
+                <img src="images/apartemen-moiserenity-2.jpg" alt="Apartemen Moiserenity" />
+                <h4>Apartemen Moiserenity</h4>
+                <p>Kelapa Gading</p>
             </div>
 
             <div class="inspiration_card">
-                <img src="images/villa-cannary-3.jpg" alt="inspiration" />
-                <h4>Tokyo</h4>
-                <p>Japan</p>
+                <img src="images/villa-eldi-cemagi-2.jpg" alt="Villa Eldy Cemagi Interior" />
+                <h4>Villa Eldy Cemagi</h4>
+                <p>Canggu</p>
             </div>
 
             <div class="inspiration_card">
-                <img src="images/villa-cannary-2.jpg" alt="inspiration" />
-                <h4>Bandung</h4>
-                <p>canggu</p>
+                <img src="images/villa-umaberawa-3.jpg" alt="Villa Umaberawa Pool" />
+                <h4>Villa Umaberawa</h4>
+                <p>Bandung</p>
             </div>
 
             <div class="inspiration_card">
-                <img src="images/villa-cannary-3.jpg" alt="inspiration" />
-                <h4>Rome</h4>
-                <p>Italy</p>
+                <img src="images/apartemen-moiserenity-3.jpg" alt="Apartemen Moiserenity View" />
+                <h4>Apartemen Moiserenity</h4>
+                <p>Kelapa Gading</p>
             </div>
 
             <div class="inspiration_card">
-                <img src="images/villa-cannary-5.jpg" alt="inspiration" />
-                <h4>Paris</h4>
-                <p>France</p>
+                <img src="images/villa-cannary-7.jpg" alt="Villa Cannary Garden" />
+                <h4>Villa Cannary</h4>
+                <p>Bandung</p>
             </div>
 
             <div class="inspiration_card">
-                <img src="images/villa-eldi-cemagi-4.jpg" alt="inspiration" />
-                <h4>santorini</h4>
-                <p>Greece</p>
+                <img src="images/villa-eldi-cemagi-3.jpg" alt="Villa Eldy Cemagi Pool" />
+                <h4>Villa Eldy Cemagi</h4>
+                <p>Canggu</p>
             </div>
 
             <div class="inspiration_card">
-                <img src="images/villa-umaberawa-1.jpg" alt="inspiration" />
-                <h4>Beijing</h4>
-                <p>china</p>
-            </div>
-
-            <div class="inspiration_card">
-                <img src="images/villa-cannary-2.jpg" alt="inspiration" />
-                <h4>London</h4>
-                <p>England</p>
-            </div>
-
-            <div class="inspiration_card">
-                <img src="images/villa-cannary-3.jpg" alt="inspiration" />
-                <h4>Tokyo</h4>
-                <p>Japan</p>
+                <img src="images/villa-umaberawa-4.jpg" alt="Villa Umaberawa View" />
+                <h4>Villa Umaberawa</h4>
+                <p>Bandung</p>
             </div>
         </div>
     </section>
@@ -221,9 +206,9 @@
         <div class="container">
             <h2>Hubungi Kami</h2>
             <div class="contact-info">
-                <p><i class="fas fa-phone"></i> +62 822-4654-9534</p>
-                <p><i class="fas fa-envelope"></i> Email : lydiaproperty@gmail.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Contoh No. 123, Jakarta</p>
+                <p><i class="ri-phone-line"></i> +62 822-4654-9534</p>
+                <p><i class="ri-mail-line"></i> Email : lydiaproperty@gmail.com</p>
+                <p><i class="ri-map-pin-line"></i> Jl. Raya Contoh No. 123, Jakarta</p>
             </div>
         </div>
     </section>
