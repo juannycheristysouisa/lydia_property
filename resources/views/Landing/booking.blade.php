@@ -22,6 +22,7 @@
         </nav>
     </header>
 
+    @extends('layouts.app')
     <section class="booking-section">
         <div class="container">
             <h2>Form Pemesanan</h2>
@@ -106,6 +107,8 @@
             </form>
 
     </section>
+    @endsection
+
 
     <!-- Footer -->
     <footer>
