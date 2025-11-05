@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,4 @@ Route::get('/', [LandingController::class, 'index'])->name('landing.index');
 Route::get('/detail/{id}', [LandingController::class, 'detail'])->name('landing.detail');
 Route::get('/property', [LandingController::class, 'property'])->name('landing.property');
 Route::get('/contact', [LandingController::class, 'contact'])->name('landing.contact');
+Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
