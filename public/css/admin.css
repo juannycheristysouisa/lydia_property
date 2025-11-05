@@ -1,0 +1,31 @@
+/* public/css/admin.css */
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    background-color: #343a40 !important;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+}
+
+.card-body {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-logout {
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.btn-logout:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
