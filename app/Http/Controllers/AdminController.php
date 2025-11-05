@@ -34,10 +34,10 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
-    // ✅ Tambahkan fungsi logout di bawah ini
     public function logout(Request $request)
     {
         Auth::guard('admin')->logout();
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
