@@ -105,7 +105,7 @@
             <div class="villa_actions">
                 <p>Tertarik Menginap di Villa Cannary?</p>
                 <h3>Rp 800.000<span>/night</span></h3>
-                <button class="book_btn">Pesan Sekarang</button>
+                <a href="{{ route('booking.create') }}" class="book_btn">Pesan Sekarang</a>
             </div>
         </div>
 
@@ -330,7 +330,9 @@
             <div class="villa_actions">
                 <p>Tertarik Menginap di Apartemen Moiserenity?</p>
                 <h3>Rp 900.000<span>/night</span></h3>
-                <button class="book_btn">Pesan Sekarang</button>
+                <a href="{{ route('booking.create', ['property' => 'Villa Cannary']) }}" class="book_btn">Pesan
+                    Sekarang</a>
+
             </div>
         </div>
         @endif

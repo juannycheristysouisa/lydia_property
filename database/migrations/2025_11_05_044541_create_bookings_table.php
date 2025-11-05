@@ -13,17 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-         Schema::create('bookings', function (Blueprint $table) {
-        $table->id();
-        $table->string('property');
-        $table->integer('price_per_night');
-        $table->string('name');
-        $table->string('nik', 16);
-        $table->text('address');
-        $table->date('check_in');
-        $table->date('check_out');
-        $table->timestamps();
-    });
+         //
     }
 
     /**

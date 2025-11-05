@@ -19,4 +19,7 @@ Route::get('/', [LandingController::class, 'index'])->name('landing.index');
 Route::get('/detail/{id}', [LandingController::class, 'detail'])->name('landing.detail');
 Route::get('/property', [LandingController::class, 'property'])->name('landing.property');
 Route::get('/contact', [LandingController::class, 'contact'])->name('landing.contact');
+
+// Booking routes
+Route::get('/booking', [BookingController::class, 'create'])->name('booking.create');
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
