@@ -65,10 +65,10 @@
                         <p class="location">Bandung, Indonesia</p>
 
                         @php
-                        $hasBoked = true;
+                        $hasBooked = false;
                         @endphp
                         <p class="price">
-                            {{ $hasBooked ? 'sold out' : 'Rp 800.000' }}<span>/night
+                            {{ $hasBooked ? 'sold out' : 'Rp 800.000' }}<span>
                                 {{ $hasBooked ? '' : '/night' }}
                             </span>
                         </p>
