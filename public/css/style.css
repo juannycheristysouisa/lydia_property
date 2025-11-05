@@ -58,15 +58,26 @@ header {
     align-items: center;
 }
 
+/* Logo tetap di kiri */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .nav-logo img {
-    height: 60px;
+    height: 50px;
     object-fit: contain;
 }
 
+/* Menu tetap di kanan */
 .nav-menu {
     display: flex;
+    align-items: center;
     gap: 2rem;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-link {
