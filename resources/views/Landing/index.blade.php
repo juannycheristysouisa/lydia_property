@@ -63,8 +63,18 @@
                     <div class="property_info">
                         <h4>Villa Cannary</h4>
                         <p class="location">Bandung, Indonesia</p>
-                        <p class="price">Rp 800.000<span>/night</span></p>
+
+                        @php
+                        $hasBoked = true;
+                        @endphp
+                        <p class="price">
+                            {{ $hasBooked ? 'sold out' : 'Rp 800.000' }}<span>/night
+                                {{ $hasBooked ? '' : '/night' }}
+                            </span>
+                        </p>
+
                         <div class="property_details">
+
                             <span><i class="ri-hotel-bed-line"></i> 4 Kamar</span>
                             <span><i class="ri-shower-line"></i> 3 Kamar Mandi</span>
                         </div>
