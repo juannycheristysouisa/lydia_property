@@ -63,7 +63,6 @@
                     <div class="property_info">
                         <h4>Villa Cannary</h4>
                         <p class="location">Bandung, Indonesia</p>
-
                         @php
                         $hasBooked = false;
                         @endphp
@@ -74,7 +73,6 @@
                         </p>
 
                         <div class="property_details">
-
                             <span><i class="ri-hotel-bed-line"></i> 4 Kamar</span>
                             <span><i class="ri-shower-line"></i> 3 Kamar Mandi</span>
                         </div>
@@ -88,7 +86,14 @@
                     <div class="property_info">
                         <h4>Villa Eldy Cemagi</h4>
                         <p class="location">Canggu, Indonesia</p>
-                        <p class="price">Rp 1.200.000<span>/night</span></p>
+                        @php
+                        $hasBooked = false;
+                        @endphp
+                        <p class="price">
+                            {{ $hasBooked ? 'sold out' : 'Rp 1.200.000' }}<span>
+                                {{ $hasBooked ? '' : '/night' }}
+                            </span>
+                        </p>
                         <div class="property_details">
                             <span><i class="ri-hotel-bed-line"></i> 5 Kamar</span>
                             <span><i class="ri-shower-line"></i> 3 Kamar Mandi</span>
@@ -103,7 +108,14 @@
                     <div class="property_info">
                         <h4>Villa Umaberawa</h4>
                         <p class="location">Bandung, Indonesia</p>
-                        <p class="price">Rp 950.000<span>/night</span></p>
+                        @php
+                        $hasBooked = false;
+                        @endphp
+                        <p class="price">
+                            {{ $hasBooked ? 'sold out' : 'Rp 950.000' }}<span>
+                                {{ $hasBooked ? '' : '/night' }}
+                            </span>
+                        </p>
                         <div class="property_details">
                             <span><i class="ri-hotel-bed-line"></i> 4 Kamar</span>
                             <span><i class="ri-shower-line"></i> 3 Kamar Mandi</span>
@@ -119,7 +131,14 @@
                     <div class="property_info">
                         <h4>Apartemen Moiserenity</h4>
                         <p class="location">Kelapa Gading, Indonesia</p>
-                        <p class="price">Rp 950.000<span>/night</span></p>
+                        @php
+                        $hasBooked = false;
+                        @endphp
+                        <p class="price">
+                            {{ $hasBooked ? 'sold out' : 'Rp 900.000' }}<span>
+                                {{ $hasBooked ? '' : '/night' }}
+                            </span>
+                        </p>
                         <div class="property_details">
                             <span><i class="ri-hotel-bed-line"></i> 4 Kamar</span>
                             <span><i class="ri-shower-line"></i> 3 Kamar Mandi</span>
