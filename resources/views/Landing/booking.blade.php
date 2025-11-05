@@ -23,9 +23,16 @@
     </header>
 
     @extends('layouts.app')
+
+    @section('content')
     <section class="booking-section">
         <div class="container">
             <h2>Form Pemesanan</h2>
+
+            {{-- Pesan sukses --}}
+            @if(session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
 
             <form id="bookingForm" action="{{ route('booking.store') }}" method="POST">
                 @csrf
@@ -34,12 +41,12 @@
                 <input type="hidden" id="pricePerNight" name="price_per_night" />
 
                 <div class="form-group">
-                    <label for="name"> Nama Lengkap*</label>
+                    <label for="name">Nama Lengkap*</label>
                     <input type="text" id="name" name="name" required placeholder="Masukkan nama lengkap sesuai KTP" />
                 </div>
 
                 <div class="form-group">
-                    <label for="nik">NIK (Nomor Induk Kependudukan) *</label>
+                    <label for="nik">NIK (Nomor Induk Kependudukan)*</label>
                     <input type="text" id="nik" name="nik" required placeholder="16 digit angka NIK" maxlength="16"
                         pattern="[0-9]{16}" />
                 </div>
@@ -60,7 +67,7 @@
                     <input type="date" id="check_out" name="check_out" required />
                 </div>
 
-                <!-- bagian tamu -->
+                <!-- Jumlah tamu -->
                 <div class="form-group">
                     <label>Jumlah Tamu*</label>
                     <div class="guest-dropdown" id="guestDropdown">
@@ -94,7 +101,7 @@
                     </div>
                 </div>
 
-                <!-- ringkasan -->
+                <!-- Ringkasan -->
                 <div class="form-group">
                     <label>Ringkasan Pesanan</label>
                     <div id="bookingSummary" class="summary-box">
@@ -105,10 +112,9 @@
 
                 <button type="submit" class="submit-button">Lanjutkan ke Pembayaran</button>
             </form>
-
+        </div>
     </section>
     @endsection
-
 
     <!-- Footer -->
     <footer>
