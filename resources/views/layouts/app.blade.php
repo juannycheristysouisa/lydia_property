@@ -13,13 +13,29 @@
 
 <body>
     <header>
-        <nav class="navbar">
-            <div class="nav-container">
+        <nav class="navbar custom-navbar">
+            <div class="container-fluid nav-container">
+                <!-- Logo -->
                 <a href="{{ route('landing.index') }}" class="nav-logo">
-                    <img src="{{ asset('images/Logo-ly.png') }}" alt="Lydia Property" />
+                    <img src="{{ asset('images/Logo-ly.png') }}" alt="Lydia Property">
                 </a>
+
+                <!-- Menu -->
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#home" class="nav-link">Beranda</a></li>
+                    <li class="nav-item"><a href="#property" class="nav-link">Property</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Kontak</a></li>
+                </ul>
+
+                <!-- Hamburger (untuk mobile) -->
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </nav>
+
     </header>
 
     <main>

@@ -91,6 +91,29 @@ header {
     color: var(--primary-color);
 }
 
+.custom-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-navbar .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.custom-navbar .nav-logo img {
+    height: 60px;
+}
+
+.custom-navbar .nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
 /* Hamburger menu hidden di desktop */
 .hamburger {
     display: none;
