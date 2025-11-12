@@ -120,19 +120,20 @@
             </div>
 
             <div class="view_photos">
-                <button id="viewPhotosBtn-eldy">Lihat Semua Foto</button>
+                <button class="viewPhotosBtn" data-villa="cannary">Lihat Semua Foto</button>
             </div>
 
-            <div id="photoModal-eldy" class="modal">
+            <div id="photoModal-cannary" class="modal">
                 <div class="modal-content">
-                    <span class="close-eldy">×</span>
+                    <span class="close">&times;</span>
                     <div class="photo-gallery">
-                        <img src="assets/villa-eldi-cemagi-2.jpg" alt="Villa Eldy Cemagi 2" />
-                        <img src="assets/villa-eldi-cemagi-3.jpg" alt="Villa Eldy Cemagi 3" />
-                        <img src="assets/villa-cannary-7.jpg" alt="Villa Cannary 6" />
+                        <img src="{{ asset('images/villa-cannary-2.jpg') }}" alt="Villa Cannary 2" />
+                        <img src="{{ asset('images/villa-cannary-3.jpg') }}" alt="Villa Cannary 3" />
+                        <img src="{{ asset('images/villa-cannary-4.jpg') }}" alt="Villa Cannary 4" />
                     </div>
                 </div>
             </div>
+
 
             <div class="villa_description">
                 <h3>Profil Villa</h3>
@@ -180,7 +181,7 @@
             <div class="villa_actions">
                 <p>Tertarik Menginap di Villa Eldy Cemagi?</p>
                 <h3>Rp 1.200.000<span>/night</span></h3>
-                <button class="book_btn">Pesan Sekarang</button>
+                <a href="{{ route('booking.create') }}" class="book_btn">Pesan Sekarang</a>
             </div>
         </div>
 
@@ -255,7 +256,7 @@
             <div class="villa_actions">
                 <p>Tertarik Menginap di Villa Umaberawa?</p>
                 <h3>Rp 1.000.000<span>/night</span></h3>
-                <button class="book_btn">Pesan Sekarang</button>
+                <a href="{{ route('booking.create') }}" class="book_btn">Pesan Sekarang</a>
             </div>
         </div>
 
@@ -345,6 +346,7 @@
         </div>
     </footer>
 
+    <script src="{{ asset('js/script.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MRCrQYXXK+9v5GsmIZWnVdjOygU44zA6AJlC9Pj1sAgm+PZQjZ6drJwRkx6D6VLE" crossorigin="anonymous">
     </script>

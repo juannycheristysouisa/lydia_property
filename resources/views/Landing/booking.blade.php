@@ -15,16 +15,13 @@
     <header>
         <nav class="navbar">
             <div class="nav-container">
-                <a href="index.html" class="nav-logo">
+                <a href="{{ route('landing.index') }}" class="nav-logo">
                     <img src="{{ asset('images/Logo-ly.png') }}" alt="Lydia Property" />
                 </a>
             </div>
         </nav>
     </header>
 
-    @extends('layouts.app')
-
-    @section('content')
     <section class="booking-section">
         <div class="container">
             <h2>Form Pemesanan</h2>
@@ -114,7 +111,7 @@
             </form>
         </div>
     </section>
-    @endsection
+
 
     <!-- Footer -->
     <footer>

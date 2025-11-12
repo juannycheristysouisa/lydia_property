@@ -264,3 +264,34 @@ function updateSummary() {
         summaryTotal.textContent = total.toLocaleString("id-ID");
     }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Tangkap semua tombol
+    const buttons = document.querySelectorAll(".viewPhotosBtn");
+
+    buttons.forEach((button) => {
+        const villaName = button.dataset.villa;
+        const modal = document.getElementById(`photoModal-${villaName}`);
+
+        if (!modal) return; // kalau modalnya ga ada, skip
+
+        const closeBtn = modal.querySelector(".close");
+
+        // Saat tombol diklik → buka modal
+        button.addEventListener("click", () => {
+            modal.style.display = "block";
+        });
+
+        // Saat tombol close diklik → tutup modal
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        // Tutup modal jika klik di luar konten
+        window.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    });
+});

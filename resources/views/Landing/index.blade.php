@@ -19,7 +19,7 @@
     <header>
         <nav class="navbar custom-navbar">
             <div class="nav-container">
-                <a href="index.html" class="nav-logo">
+                <a href="{{ route('landing.index') }}" class="nav-logo">
                     <img src="images/Logo-ly.png" alt="Lydia Property" />
                 </a>
                 <ul class="nav-menu">
