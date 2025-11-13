@@ -346,10 +346,12 @@
         </div>
     </footer>
 
-    <script src="{{ asset('js/script.js') }}"></script>
+    <!-- Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MRCrQYXXK+9v5GsmIZWnVdjOygU44zA6AJlC9Pj1sAgm+PZQjZ6drJwRkx6D6VLE" crossorigin="anonymous">
     </script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
 </html>

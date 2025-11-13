@@ -38,12 +38,12 @@
                 <input type="hidden" id="pricePerNight" name="price_per_night" />
 
                 <div class="form-group">
-                    <label for="name">Nama Lengkap*</label>
+                    <label for="name">Nama Lengkap</label>
                     <input type="text" id="name" name="name" required placeholder="Masukkan nama lengkap sesuai KTP" />
                 </div>
 
                 <div class="form-group">
-                    <label for="nik">NIK (Nomor Induk Kependudukan)*</label>
+                    <label for="nik">NIK (Nomor Induk Kependudukan)</label>
                     <input type="text" id="nik" name="nik" required placeholder="16 digit angka NIK" maxlength="16"
                         pattern="[0-9]{16}" />
                 </div>
@@ -55,18 +55,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="check_in">Tanggal Check-in *</label>
+                    <label for="check_in">Tanggal Check-in</label>
                     <input type="date" id="check_in" name="check_in" required />
                 </div>
 
                 <div class="form-group">
-                    <label for="check_out">Tanggal Check-out *</label>
+                    <label for="check_out">Tanggal Check-out</label>
                     <input type="date" id="check_out" name="check_out" required />
                 </div>
 
                 <!-- Jumlah tamu -->
                 <div class="form-group">
-                    <label>Jumlah Tamu*</label>
+                    <label>Jumlah Tamu</label>
                     <div class="guest-dropdown" id="guestDropdown">
                         <div id="guestSummary" class="guest-summary">
                             <i class="ri-user-line"></i>
@@ -78,7 +78,7 @@
                             <div class="guest-item">
                                 <span>Dewasa</span>
                                 <div class="counter">
-                                    <button type="button" onclick="changeValue('dewasa', -1)">−</button>
+                                    <button type="button" onclick="changeValue('dewasa', -1)">-</button>
                                     <input type="text" id="dewasa" value="2" readonly />
                                     <button type="button" onclick="changeValue('dewasa', 1)">+</button>
                                 </div>
@@ -96,6 +96,11 @@
                             <button type="button" id="selesaiBtn" class="selesai-btn">Selesai</button>
                         </div>
                     </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Pesan Tambahan</label>
+                    <textarea id="address" name="address" required placeholder="Masukkan Pesan Tambahan"></textarea>
                 </div>
 
                 <!-- Ringkasan -->
@@ -120,10 +125,12 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MRCrQYXXK+9v5GsmIZWnVdjOygU44zA6AJlC9Pj1sAgm+PZQjZ6drJwRkx6D6VLE" crossorigin="anonymous">
     </script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
 </html>

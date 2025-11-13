@@ -266,32 +266,28 @@ function updateSummary() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Tangkap semua tombol
-    const buttons = document.querySelectorAll(".viewPhotosBtn");
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    const navLinks = document.querySelectorAll(".nav-link");
 
-    buttons.forEach((button) => {
-        const villaName = button.dataset.villa;
-        const modal = document.getElementById(`photoModal-${villaName}`);
-
-        if (!modal) return; // kalau modalnya ga ada, skip
-
-        const closeBtn = modal.querySelector(".close");
-
-        // Saat tombol diklik → buka modal
-        button.addEventListener("click", () => {
-            modal.style.display = "block";
+    if (hamburger && navMenu) {
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+            hamburger.classList.toggle("active");
         });
 
-        // Saat tombol close diklik → tutup modal
-        closeBtn.addEventListener("click", () => {
-            modal.style.display = "none";
+        navLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+                navMenu.classList.remove("active");
+                hamburger.classList.remove("active");
+            });
         });
 
-        // Tutup modal jika klik di luar konten
-        window.addEventListener("click", (event) => {
-            if (event.target === modal) {
-                modal.style.display = "none";
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 768) {
+                navMenu.classList.remove("active");
+                hamburger.classList.remove("active");
             }
         });
-    });
+    }
 });
