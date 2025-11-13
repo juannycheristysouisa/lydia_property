@@ -264,30 +264,3 @@ function updateSummary() {
         summaryTotal.textContent = total.toLocaleString("id-ID");
     }
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-    const hamburger = document.getElementById("hamburger");
-    const navMenu = document.querySelector(".nav-menu");
-    const navLinks = document.querySelectorAll(".nav-link");
-
-    if (hamburger && navMenu) {
-        hamburger.addEventListener("click", () => {
-            navMenu.classList.toggle("active");
-            hamburger.classList.toggle("active");
-        });
-
-        navLinks.forEach((link) => {
-            link.addEventListener("click", () => {
-                navMenu.classList.remove("active");
-                hamburger.classList.remove("active");
-            });
-        });
-
-        window.addEventListener("resize", () => {
-            if (window.innerWidth > 768) {
-                navMenu.classList.remove("active");
-                hamburger.classList.remove("active");
-            }
-        });
-    }
-});
