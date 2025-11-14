@@ -59,7 +59,6 @@ header {
 }
 
 .nav-container {
-    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -85,13 +84,10 @@ header {
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 2rem;
     list-style: none;
     margin: 0;
     padding: 0;
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: all 0.3s ease;
 }
 
 .nav-link {
@@ -105,24 +101,10 @@ header {
     color: var(--primary-color);
 }
 
-.nav-menu .nav-link {
-    color: #333;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.nav-menu .nav-link:hover {
-    color: #007bff;
-}
-
 .custom-navbar {
-    background-color: white;
-    padding: 15px 30px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .custom-navbar .nav-container {
@@ -158,23 +140,12 @@ header {
     transition: all 0.3s ease;
 }
 
-/* Animasi saat hamburger aktif */
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translateY(8px);
-}
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-8px);
-}
-
 /* Saat layar kecil (max-width 768px) */
 @media (max-width: 768px) {
     .nav-menu {
-        position: fixed;
+        position: absolute;
         top: 80px;
-        left: 0;
+        right: 0;
         width: 100%;
         background: white;
         flex-direction: column;
@@ -182,21 +153,14 @@ header {
         display: none;
         padding: 20px 0;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        transform: translateY(-100%);
-        opacity: 0;
-        transition: all 0.3s ease;
-        z-index: 9999;
     }
 
     .nav-menu.active {
         display: flex;
-        transform: translateY(0);
-        opacity: 1;
     }
 
     .hamburger {
         display: flex;
-        z-index: 10000;
     }
 }
 
