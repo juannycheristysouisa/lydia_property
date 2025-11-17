@@ -208,100 +208,122 @@ document.addEventListener("DOMContentLoaded", function () {
             );
         }
     }
-});
 
-// === Tombol Pesan Sekarang ===
-const pesanButtons = document.querySelectorAll(".pesan-btn");
+    // === Tombol Pesan Sekarang ===
+    const pesanButtons = document.querySelectorAll(".pesan-btn");
 
-pesanButtons.forEach((btn) => {
-    btn.addEventListener("click", function () {
-        const propertyName = this.getAttribute("data-property");
-        const price = this.getAttribute("data-price");
+    pesanButtons.forEach((btn) => {
+        btn.addEventListener("click", function () {
+            const propertyName = this.getAttribute("data-property");
+            const price = this.getAttribute("data-price");
 
-        if (propertyName && price) {
+            if (propertyName && price) {
+                window.location.href = `booking.html?property=${encodeURIComponent(
+                    propertyName
+                )}&price=${price}`;
+            } else {
+                alert("Data properti tidak ditemukan!");
+            }
+        });
+    });
+
+    // === Logika Tombol "Pesan Sekarang" ===
+    document.addEventListener("click", function (e) {
+        if (e.target.classList.contains("book_btn")) {
+            const property = e.target.getAttribute("data-property");
+            const price = e.target.getAttribute("data-price");
+
+            // Arahkan ke halaman booking dengan parameter di URL
             window.location.href = `booking.html?property=${encodeURIComponent(
-                propertyName
+                property
             )}&price=${price}`;
-        } else {
-            alert("Data properti tidak ditemukan!");
         }
     });
-});
 
-const urlParams = new URLSearchParams(window.location.search);
+    // Dropdown toggle
+    const guestDropdown = document.getElementById("guestDropdown");
+    const guestSummary = document.getElementById("guestSummary");
+    const guestOptions = document.getElementById("guestOptions");
+    const selesaiBtn = document.getElementById("selesaiBtn");
 
-// === Logika Tombol "Pesan Sekarang" ===
-document.addEventListener("click", function (e) {
-    if (e.target.classList.contains("book_btn")) {
-        const property = e.target.getAttribute("data-property");
-        const price = e.target.getAttribute("data-price");
+    if (guestSummary && guestOptions && selesaiBtn) {
+        guestSummary.addEventListener("click", () => {
+            guestOptions.style.display =
+                guestOptions.style.display === "block" ? "none" : "block";
+        });
 
-        // Arahkan ke halaman booking dengan parameter di URL
-        window.location.href = `booking.html?property=${encodeURIComponent(
-            property
-        )}&price=${price}`;
+        selesaiBtn.addEventListener("click", () => {
+            updateGuestText();
+            guestOptions.style.display = "none";
+        });
     }
-});
 
-// Dropdown toggle
-const guestDropdown = document.getElementById("guestDropdown");
-const guestSummary = document.getElementById("guestSummary");
-const guestOptions = document.getElementById("guestOptions");
-const selesaiBtn = document.getElementById("selesaiBtn");
-
-guestSummary.addEventListener("click", () => {
-    guestOptions.style.display =
-        guestOptions.style.display === "block" ? "none" : "block";
-});
-
-selesaiBtn.addEventListener("click", () => {
-    updateGuestText();
-    guestOptions.style.display = "none";
-});
-
-// Ganti nilai dewasa/anak
-function changeValue(id, change) {
-    const input = document.getElementById(id);
-    let value = parseInt(input.value) + change;
-    if (value < 0) value = 0;
-    input.value = value;
-    updateGuestText();
-    updateSummary();
-}
-
-// Update teks “2 dewasa · 1 anak”
-function updateGuestText() {
-    const dewasa = document.getElementById("dewasa").value;
-    const anak = document.getElementById("anak").value;
-    document.getElementById(
-        "guestText"
-    ).textContent = `${dewasa} dewasa · ${anak} anak`;
-}
-
-// Update otomatis ringkasan harga
-const checkIn = document.getElementById("check_in");
-const checkOut = document.getElementById("check_out");
-const summaryPrice = document.getElementById("summaryPrice");
-const summaryNights = document.getElementById("summaryNights");
-const summaryTotal = document.getElementById("summaryTotal");
-
-checkIn.addEventListener("change", updateSummary);
-checkOut.addEventListener("change", updateSummary);
-
-function updateSummary() {
-    const price = 500000; // Harga per malam
-    const inDate = new Date(checkIn.value);
-    const outDate = new Date(checkOut.value);
-
-    if (inDate && outDate && outDate > inDate) {
-        const nights = Math.ceil((outDate - inDate) / (1000 * 60 * 60 * 24));
-        summaryNights.textContent = nights;
-
-        const dewasa = parseInt(document.getElementById("dewasa").value);
-        const anak = parseInt(document.getElementById("anak").value);
-        const totalTamu = dewasa + anak;
-
-        const total = nights * price + totalTamu * 50000; // Tambahan biaya per tamu
-        summaryTotal.textContent = total.toLocaleString("id-ID");
+    // Ganti nilai dewasa/anak
+    function changeValue(id, change) {
+        const input = document.getElementById(id);
+        if (input) {
+            let value = parseInt(input.value) + change;
+            if (value < 0) value = 0;
+            input.value = value;
+            updateGuestText();
+            updateSummary();
+        }
     }
-}
+
+    // Update teks “2 dewasa · 1 anak”
+    function updateGuestText() {
+        const dewasaInput = document.getElementById("dewasa");
+        const anakInput = document.getElementById("anak");
+        const guestText = document.getElementById("guestText");
+        if (dewasaInput && anakInput && guestText) {
+            const dewasa = dewasaInput.value;
+            const anak = anakInput.value;
+            guestText.textContent = `${dewasa} dewasa · ${anak} anak`;
+        }
+    }
+
+    // Update otomatis ringkasan harga
+    const checkIn = document.getElementById("check_in");
+    const checkOut = document.getElementById("check_out");
+    const summaryPrice = document.getElementById("summaryPrice");
+    const summaryNights = document.getElementById("summaryNights");
+    const summaryTotal = document.getElementById("summaryTotal");
+
+    if (checkIn && checkOut) {
+        checkIn.addEventListener("change", updateSummary);
+        checkOut.addEventListener("change", updateSummary);
+    }
+
+    function updateSummary() {
+        const price = 500000; // Harga per malam
+        const inDate = new Date(checkIn.value);
+        const outDate = new Date(checkOut.value);
+
+        if (
+            inDate &&
+            outDate &&
+            outDate > inDate &&
+            summaryNights &&
+            summaryTotal
+        ) {
+            const nights = Math.ceil(
+                (outDate - inDate) / (1000 * 60 * 60 * 24)
+            );
+            summaryNights.textContent = nights;
+
+            const dewasaInput = document.getElementById("dewasa");
+            const anakInput = document.getElementById("anak");
+            if (dewasaInput && anakInput) {
+                const dewasa = parseInt(dewasaInput.value);
+                const anak = parseInt(anakInput.value);
+                const totalTamu = dewasa + anak;
+
+                const total = nights * price + totalTamu * 50000; // Tambahan biaya per tamu
+                summaryTotal.textContent = total.toLocaleString("id-ID");
+            }
+        }
+    }
+
+    // Expose changeValue to global scope if needed (e.g., for onclick in HTML)
+    window.changeValue = changeValue;
+});

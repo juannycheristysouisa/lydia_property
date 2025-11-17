@@ -125,6 +125,7 @@ header {
 }
 
 /* Hamburger menu hidden di desktop */
+/* Hamburger menu hidden di desktop */
 .hamburger {
     display: none;
     flex-direction: column;

@@ -22,8 +22,8 @@ Route::post('/admin/login', [AdminController::class, 'loginProcess'])->name('adm
 Route::get('/admin/register', [AdminController::class, 'register'])->name('admin.register');
 Route::post('/admin/register', [AdminController::class, 'registerProcess'])->name('admin.registerProcess');
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->middleware('auth:admin')->name('admin.dashboard');
-Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
 // Resource untuk properti admin
 Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function () {
-    Route::resource('properties', AdminPropertyController::class);
-});
+Route::resource('properties', AdminPropertyController::class);});
