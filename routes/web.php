@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\DashboardController;
 
 // ====== Halaman Website Utama ======
 Route::get('/', [LandingController::class, 'index'])->name('landing.index');
@@ -16,7 +17,4 @@ Route::get('/booking', [BookingController::class, 'create'])->name('booking.crea
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 
 // ====== Halaman Admin ======
-Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');
-Route::post('/admin/login', [AdminController::class, 'loginProcess'])->name('admin.loginProcess');
-Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->middleware('auth:admin')->name('admin.dashboard');
-Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+Route::get('/dashboard', [DashboardController::class, 'index']);
