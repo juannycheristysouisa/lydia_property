@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -11,38 +11,50 @@
 </head>
 
 <body>
-    <div class="card login-card p-4">
-        <h4 class="text-center mb-3">Login Admin</h4>
+    <div class="login-wrapper">
+        <div class="login-card">
+            <h3>Login Admin</h3>
 
-        @if($errors->any())
-        <div class="alert alert-danger">
-            {{ $errors->first() }}
+            @if(session('error'))
+            <div style="color: red; margin-bottom: 10px;">
+                {{ session('error') }}
+            </div>
+            @endif
+
+            <form method="POST" action="{{ route('admin.login.submit') }}">
+                @csrf
+
+                <div>
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+
+                <div>
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+
+                <button class="btn-primary-admin btn-admin" style="width: 100%;">Login</button>
+            </form>
+
+            <!-- Tambahan Daftar -->
+            <div style="text-align: center; margin-top: 15px;">
+                <span style="color: #666;">Belum punya akun?</span>
+                <a href="{{ route('admin.register') }}"
+                    style="color: #3498db; text-decoration: none; font-weight: 600;">
+                    Daftar di sini
+                </a>
+            </div>
+
         </div>
-        @endif
-
-        <form method="POST" action="{{ route('admin.loginProcess') }}">
-            @csrf
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password"
-                    placeholder="Masukkan password" required>
-            </div>
-
-            <button type="submit" class="btn btn-primary w-100">Login</button>
-        </form>
     </div>
-
     <!-- Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MRCrQYXXK+9v5GsmIZWnVdjOygU44zA6AJlC9Pj1sAgm+PZQjZ6drJwRkx6D6VLE" crossorigin="anonymous">
     </script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="{{ asset('js/script.js') }}"></script>
+
 </body>
 
 </html>

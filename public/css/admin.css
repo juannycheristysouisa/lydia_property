@@ -1,40 +1,212 @@
-/* public/css/admin.css */
+/* ============================
+   ADMIN PANEL GLOBAL STYLE
+   ============================ */
 
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Body Layout */
 body {
     background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* ============================
+   LOGIN PAGE STYLE
+   ============================ */
+.login-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 .login-card {
-    width: 400px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.navbar {
-    background-color: #343a40 !important;
-}
-
-.card {
-    border: none;
-    border-radius: 10px;
-}
-
-.card-body {
+    width: 380px;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.login-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* ============================
+   NAVBAR ADMIN
+   ============================ */
+.navbar-admin {
+    background-color: #343a40 !important;
+    padding: 14px 20px;
+}
+
+.navbar-admin .navbar-brand {
+    color: #fff !important;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.navbar-admin .nav-link {
+    color: #ffffffcc !important;
+    margin-right: 15px;
+    transition: 0.2s;
+}
+
+.navbar-admin .nav-link:hover {
+    color: #fff !important;
 }
 
 .btn-logout {
-    color: #fff;
+    color: #fff !important;
     border: 1px solid #fff;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: 0.2s;
 }
 
 .btn-logout:hover {
     background-color: #dc3545;
     border-color: #dc3545;
+}
+
+/* ============================
+   DASHBOARD LAYOUT
+   ============================ */
+.admin-container {
+    padding: 25px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* ============================
+   CARD STYLE
+   ============================ */
+.card-admin {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+}
+
+.card-admin h5 {
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* ============================
+   TABLE STYLE
+   ============================ */
+.table-admin {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-admin th {
+    background: #343a40;
+    color: white;
+    padding: 12px;
+    font-weight: 500;
+}
+
+.table-admin td {
+    padding: 12px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-admin tr:hover td {
+    background: #f1f1f1;
+}
+
+/* ============================
+   BUTTONS
+   ============================ */
+.btn-admin {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.btn-primary-admin {
+    background: #007bff;
+}
+.btn-primary-admin:hover {
+    background: #0069d9;
+}
+
+.btn-success-admin {
+    background: #28a745;
+}
+.btn-success-admin:hover {
+    background: #218838;
+}
+
+.btn-warning-admin {
+    background: #ffc107;
+    color: #333;
+}
+.btn-warning-admin:hover {
+    background: #e0a800;
+}
+
+.btn-danger-admin {
+    background: #dc3545;
+}
+.btn-danger-admin:hover {
+    background: #b02a37;
+}
+
+/* ============================
+   FORM STYLE
+   ============================ */
+.admin-form label {
+    font-weight: 500;
+}
+
+.admin-form input,
+.admin-form select,
+.admin-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    background: white;
+}
+
+.admin-form input:focus,
+.admin-form select:focus,
+.admin-form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+}
+
+/* ============================
+   FOOTER ADMIN
+   ============================ */
+.footer-admin {
+    text-align: center;
+    padding: 15px;
+    color: #666;
+    margin-top: 40px;
+    font-size: 14px;
 }
