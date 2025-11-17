@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminPropertyController;
 
 // ====== Halaman Website Utama ======
 Route::get('/', [LandingController::class, 'index'])->name('landing.index');
@@ -22,3 +23,7 @@ Route::get('/admin/register', [AdminController::class, 'register'])->name('admin
 Route::post('/admin/register', [AdminController::class, 'registerProcess'])->name('admin.registerProcess');
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->middleware('auth:admin')->name('admin.dashboard');
 Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+// Resource untuk properti admin
+Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('properties', AdminPropertyController::class);
+});

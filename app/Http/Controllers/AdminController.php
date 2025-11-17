@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
 use App\Models\Property;
-use App\Models\Booking;
+use App\Models\Order;
+use App\Models\User;
+
 
 class AdminController extends Controller
 {
@@ -27,7 +29,7 @@ class AdminController extends Controller
             return redirect()->route('admin.dashboard');
         }
 
-        return back()->with('error', 'Email atau password salah.');
+        return back()->withErrors(['error' => 'Email atau password salah.']);
     }
 
     public function register()
@@ -52,17 +54,19 @@ class AdminController extends Controller
         return redirect()->route('admin.login')->with('success', 'Akun admin berhasil dibuat!');
     }
 
-    public function dashboard()
-    {
-        $totalProperty = Property::count() ?? 0;
-        $totalOrders = Booking::count() ?? 0;
-        $activeUsers = Booking::where('status', 'confirmed')->count() ?? 0;
-        return view('admin.dashboard', compact('totalProperty', 'totalOrders', 'activeUsers'));
-    }
-
     public function logout()
     {
         Auth::guard('admin')->logout();
         return redirect()->route('admin.login');
     }
+    
+    public function dashboard()
+    {
+    $totalProperty = Property::count();
+    $totalOrders = Order::count();
+    $activeUsers = User::count();
+
+    return view('admin.dashboard', compact('totalProperty', 'totalOrders', 'activeUsers'));
+}
+
 }
