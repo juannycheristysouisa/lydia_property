@@ -53,6 +53,47 @@ if (typeof ScrollReveal !== "undefined") {
         origin: "bottom",
         duration: 800,
     });
+
+    // Animasi untuk halaman login admin
+    if (document.querySelector(".login-card")) {
+        ScrollReveal().reveal(".login-icon", {
+            distance: "30px",
+            origin: "top",
+            duration: 800,
+            delay: 200,
+        });
+        ScrollReveal().reveal(".login-card h3", {
+            distance: "20px",
+            origin: "bottom",
+            duration: 600,
+            delay: 400,
+        });
+        ScrollReveal().reveal(".login-header p", {
+            distance: "20px",
+            origin: "bottom",
+            duration: 600,
+            delay: 500,
+        });
+        ScrollReveal().reveal(".form-group", {
+            distance: "30px",
+            origin: "bottom",
+            duration: 700,
+            delay: 600,
+            interval: 200,
+        });
+        ScrollReveal().reveal(".btn-login", {
+            distance: "20px",
+            origin: "bottom",
+            duration: 600,
+            delay: 1000,
+        });
+        ScrollReveal().reveal(".login-footer", {
+            distance: "20px",
+            origin: "bottom",
+            duration: 600,
+            delay: 1100,
+        });
+    }
 }
 
 // === Auto-scroll horizontal inspirasi (opsional) ===
