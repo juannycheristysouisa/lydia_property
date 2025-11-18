@@ -23,17 +23,10 @@
             <i class="fas fa-tachometer-alt"></i> Dashboard
         </a>
 
-        <a href="#" class="sidebar-link">
-            <i class="fas fa-building"></i> Properti
-        </a>
-
-        <a href="#" class="sidebar-link">
+        <a href="{{ route('admin.pemesanan') }}" class="sidebar-link">
             <i class="fas fa-calendar-check"></i> Pemesanan
         </a>
 
-        <a href="#" class="sidebar-link">
-            <i class="fas fa-users"></i> Users
-        </a>
 
         <form action="{{ route('admin.logout') }}" method="POST">
             @csrf

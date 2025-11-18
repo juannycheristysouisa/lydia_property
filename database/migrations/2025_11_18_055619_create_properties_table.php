@@ -12,12 +12,18 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    {
-        Schema::create('properties', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('properties', function (Blueprint $table) {
+        $table->id();
+        $table->string('nama_villa');
+        $table->integer('harga');
+        $table->string('lokasi')->nullable();
+        $table->string('gambar')->nullable();
+        $table->text('deskripsi')->nullable();
+        $table->timestamps();
+    });
+}
+
 
     /**
      * Reverse the migrations.
