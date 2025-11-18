@@ -7,7 +7,6 @@
     <title>Dashboard Admin - Property Villa & Apartemen</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Ikon Font Awesome -->
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 </head>
 
@@ -26,7 +25,6 @@
         <a href="{{ route('admin.pemesanan') }}" class="sidebar-link">
             <i class="fas fa-calendar-check"></i> Pemesanan
         </a>
-
 
         <form action="{{ route('admin.logout') }}" method="POST">
             @csrf

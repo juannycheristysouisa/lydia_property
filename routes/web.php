@@ -13,7 +13,8 @@ Route::get('/property', [LandingController::class, 'property'])->name('landing.p
 Route::get('/contact', [LandingController::class, 'contact'])->name('landing.contact');
 
 // Booking routes
-Route::post('/booking/store', [BookingController::class, 'store'])->name('booking.store');
+Route::get('/booking', [BookingController::class, 'create'])->name('booking.create');
+Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 
 // ====== Halaman Admin ======
 Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');
@@ -23,9 +24,6 @@ Route::post('/admin/register', [AdminController::class, 'registerProcess'])->nam
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->middleware('auth:admin')->name('admin.dashboard');
 Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
-// Resource untuk properti admin
-Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function () {
-Route::resource('properties', AdminPropertyController::class);});
 
 // ADMIN — tampilkan daftar pemesanan
 Route::middleware(['auth:admin'])->group(function () {

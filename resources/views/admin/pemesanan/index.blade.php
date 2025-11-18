@@ -15,21 +15,21 @@
                     <th>Dewasa</th>
                     <th>Anak</th>
                     <th>Total Harga</th>
-                    <th>Waktu</th>
                 </tr>
             </thead>
 
             <tbody>
                 @foreach($bookings as $b)
                 <tr>
-                    <td>{{ $b->name }}</td>
+                    <td>{{ $b->nama_lengkap }}</td>
                     <td>{{ $b->nik }}</td>
-                    <td>{{ $b->check_in }}</td>
-                    <td>{{ $b->check_out }}</td>
+                    <td>{{ $b->checkin }}</td>
+                    <td>{{ $b->checkout }}</td>
                     <td>{{ $b->dewasa }}</td>
                     <td>{{ $b->anak }}</td>
-                    <td>Rp {{ number_format($b->total_price) }}</td>
+                    <td>Rp {{ number_format($b->total_harga) }}</td>
                     <td>{{ $b->created_at->format('d M Y') }}</td>
+
                 </tr>
                 @endforeach
             </tbody>
