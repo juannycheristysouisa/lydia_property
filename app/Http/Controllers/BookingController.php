@@ -1,5 +1,5 @@
 <?php
-
+  
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -10,7 +10,7 @@ class BookingController extends Controller
     // Tambahkan method ini untuk menampilkan form booking
     public function create()
     {
-        return view('booking.create');  // Akan kita buat view-nya di bawah
+        return view('booking.create');  
     }
 
     // Method store Anda sudah ada, tapi pastikan validasi lengkap
@@ -37,6 +37,7 @@ class BookingController extends Controller
             'checkout' => $request->check_out,
             'dewasa' => $request->dewasa,
             'anak' => $request->anak,
+            'note' => $request->note,
             'total_harga' => $totalHarga,
         ]);
 

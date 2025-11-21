@@ -101,7 +101,8 @@
 
                     <div class="form-group">
                         <label for="address">Pesan Tambahan</label>
-                        <textarea id="address" name="address" required placeholder="Masukkan Pesan Tambahan"></textarea>
+                        <textarea id="note" name="note" placeholder="Masukkan Pesan Tambahan"></textarea>
+
                     </div>
 
                     <!-- Ringkasan -->
