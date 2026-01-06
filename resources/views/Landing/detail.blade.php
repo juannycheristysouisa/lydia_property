@@ -43,13 +43,13 @@
 
             <div id="photoModal-cannary" class="modal">
                 <div class="modal-content">
-                    <span class="close-cannary"></span>
+                    <span class="close-cannary close">&times;</span>
                     <div class="photo-gallery">
-                        <img src="assets/villa-cannary-2.jpg" alt="Villa Cannary 2" />
-                        <img src="assets/villa-cannary-3.jpg" alt="Villa Cannary 3" />
-                        <img src="assets/villa-cannary-4.jpg" alt="Villa Cannary 4" />
-                        <img src="assets/villa-cannary-5.jpg" alt="Villa Cannary 5" />
-                        <img src="assets/villa-cannary-7.jpg" alt="Villa Cannary 6" />
+                        <img src="{{ asset('images/villa-cannary-2.jpg') }}" alt="Gallery" />
+                        <img src="{{ asset('images/villa-cannary-3.jpg') }}" alt="Gallery" />
+                        <img src="{{ asset('images/villa-cannary-4.jpg') }}" alt="Gallery" />
+                        <img src="{{ asset('images/villa-cannary-5.jpg') }}" alt="Gallery" />
+                        <img src="{{ asset('images/villa-cannary-6.jpg') }}" alt="Gallery" />
                     </div>
                 </div>
             </div>
@@ -105,7 +105,8 @@
             <div class="villa_actions">
                 <p>Tertarik Menginap di Villa Cannary?</p>
                 <h3>Rp 800.000<span>/night</span></h3>
-                <a href="{{ route('booking.create') }}" class="book_btn">Pesan Sekarang</a>
+                <a href="{{ route('booking.create', ['property' => 'Villa Cannary', 'price' => 800000]) }}"
+                    class="book_btn">Pesan Sekarang</a>
             </div>
         </div>
 
@@ -120,16 +121,17 @@
             </div>
 
             <div class="view_photos">
-                <button class="viewPhotosBtn" data-villa="cannary">Lihat Semua Foto</button>
+                <button id="viewPhotosBtn-eldy">Lihat Semua Foto</button>
             </div>
 
-            <div id="photoModal-cannary" class="modal">
+            <div id="photoModal-eldy" class="modal">
                 <div class="modal-content">
-                    <span class="close">&times;</span>
+                    <span class="close-eldy close">&times;</span>
                     <div class="photo-gallery">
-                        <img src="{{ asset('images/villa-cannary-2.jpg') }}" alt="Villa Cannary 2" />
-                        <img src="{{ asset('images/villa-cannary-3.jpg') }}" alt="Villa Cannary 3" />
-                        <img src="{{ asset('images/villa-cannary-4.jpg') }}" alt="Villa Cannary 4" />
+                        <img src="{{ asset('images/villa-eldi-cemagi-2.jpg') }}" alt="Gallery" />
+                        <img src="{{ asset('images/villa-eldi-cemagi-3.jpg') }}" alt="Gallery" />
+                        <img src="{{ asset('images/villa-eldi-cemagi-4.jpg') }}" alt="Gallery" />
+                        <img src="{{ asset('images/villa-eldi-cemagi-5.jpg') }}" alt="Gallery" />
                     </div>
                 </div>
             </div>
@@ -181,7 +183,8 @@
             <div class="villa_actions">
                 <p>Tertarik Menginap di Villa Eldy Cemagi?</p>
                 <h3>Rp 1.200.000<span>/night</span></h3>
-                <a href="{{ route('booking.create') }}" class="book_btn">Pesan Sekarang</a>
+                <a href="{{ route('booking.create', ['property' => 'Villa Eldy Cemagi', 'price' => 1200000]) }}"
+                    class="book_btn">Pesan Sekarang</a>
             </div>
         </div>
 
@@ -189,98 +192,23 @@
         @elseif ($id === 'umaberawa')
         <div class="container detail_container">
             <h2 class="villa_name">Villa Umaberawa</h2>
-            <p class="villa_location">Bandung</p>
+            <p class="villa_location">Badung</p>
 
             <div class="detail_image">
                 <img src="{{ asset('images/villa-umaberawa-1.jpg') }}" alt="Villa Umaberawa" />
             </div>
 
             <div class="view_photos">
-                <button id="viewPhotosBtn-eldy">Lihat Semua Foto</button>
+                <button id="viewPhotosBtn-umaberawa">Lihat Semua Foto</button>
             </div>
 
-            <div id="photoModal-eldy" class="modal">
+            <div id="photoModal-umaberawa" class="modal">
                 <div class="modal-content">
-                    <span class="close-eldy">×</span>
+                    <span class="close-umaberawa close">&times;</span>
                     <div class="photo-gallery">
-                        <img src="assets/villa-eldi-cemagi-2.jpg" alt="Villa Eldy Cemagi 2" />
-                        <img src="assets/villa-eldi-cemagi-3.jpg" alt="Villa Eldy Cemagi 3" />
-                        <img src="assets/villa-cannary-7.jpg" alt="Villa Cannary 6" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="villa_description">
-                <h3>Profil Villa</h3>
-                <p>
-                    Villa Eldy Cemagi terletak di kawasan Canggu, Bali. Villa modern dengan pemandangan sawah yang
-                    indah. Dirancang untuk liburan santai dengan kolam renang pribadi dan dekorasi mewah.
-                </p>
-            </div>
-
-            <div class="villa_facilities">
-                <h3>Fasilitas</h3>
-                <ul>
-                    <li><i class="ri-hotel-bed-line"></i> 5 Kamar Tidur</li>
-                    <li><i class="ri-water-flash-line"></i> Kolam Renang Infinity</li>
-                    <li><i class="ri-wifi-line"></i> Wi-Fi Super Cepat</li>
-                    <li><i class="ri-parking-box-line"></i> Area Parkir</li>
-                    <li><i class="ri-restaurant-line"></i> Dapur Lengkap</li>
-                    <li><i class="ri-service-line"></i> Layanan Kebersihan Harian</li>
-                    <li><i class="ri-landscape-line"></i> Pemandangan Sawah</li>
-                </ul>
-            </div>
-
-            <div class="villa_location_detail">
-                <h3>Detail Lokasi</h3>
-                <p>
-                    Jalan Pantai Cemagi, Canggu, Bali – dekat dengan Pantai Berawa dan Pura Tanah Lot.
-                </p>
-                <div class="map-container">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4874.873266765303!2d107.57933957587457!3d-6.793958566447069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e19240d21877%3A0xe580b95ef9006921!2sVilla%20Cannary!5e1!3m2!1sen!2sid!4v1755442929440!5m2!1sen!2sid"
-                        width="600" height="450" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-            </div>
-
-            <div class="price_box">
-                <h3>Harga</h3>
-                <p class="villa_price">Rp 1.200.000<span>/night</span></p>
-                <p class="price_note">
-                    Termasuk: Kolam renang, WiFi, dapur, air mineral, dan area parkir.
-                </p>
-            </div>
-
-            <div class="villa_actions">
-                <p>Tertarik Menginap di Villa Umaberawa?</p>
-                <h3>Rp 1.000.000<span>/night</span></h3>
-                <a href="{{ route('booking.create') }}" class="book_btn">Pesan Sekarang</a>
-            </div>
-        </div>
-
-        {{-- =================== APARTEMEN MOISERENITY =================== --}}
-        @elseif ($id === 'moiserenity')
-        <div class="container detail_container">
-            <h2 class="villa_name">Apartemen Moiserenity</h2>
-            <p class="villa_location">Kelapa Gading</p>
-
-            <div class="detail_image">
-                <img src="{{ asset('images/apartemen-moiserenity-1.jpg') }}" alt="Apartemen Moiserenity" />
-            </div>
-
-            <div class="view_photos">
-                <button id="viewPhotosBtn-eldy">Lihat Semua Foto</button>
-            </div>
-
-            <div id="photoModal-eldy" class="modal">
-                <div class="modal-content">
-                    <span class="close-eldy"></span>
-                    <div class="photo-gallery">
-                        <img src="assets/villa-eldi-cemagi-2.jpg" alt="Villa Eldy Cemagi 2" />
-                        <img src="assets/villa-eldi-cemagi-3.jpg" alt="Villa Eldy Cemagi 3" />
-                        <img src="assets/villa-cannary-7.jpg" alt="Villa Cannary 6" />
+                        <img src="{{ asset('images/villa-umaberawa-2.jpg') }}" alt="Gallery" />
+                        <img src="{{ asset('images/villa/umaberawa-3.jpg') }}" alt="Gallery" />
+                        <img src="{{ asset('images/villa/umaberawa-4.jpg') }}" alt="Gallery" />
                     </div>
                 </div>
             </div>
@@ -329,11 +257,86 @@
             </div>
 
             <div class="villa_actions">
+                <p>Tertarik Menginap di Villa Umaberawa?</p>
+                <h3>Rp 1.000.000<span>/night</span></h3>
+                <a href="{{ route('booking.create', ['property' => 'Villa Umaberawa', 'price' => 1000000]) }}"
+                    class="book_btn">Pesan Sekarang</a>
+            </div>
+        </div>
+
+        {{-- =================== APARTEMEN MOISERENITY =================== --}}
+        @elseif ($id === 'moiserenity')
+        <div class="container detail_container">
+            <h2 class="villa_name">Apartemen Moiserenity</h2>
+            <p class="villa_location">Kelapa Gading</p>
+
+            <div class="detail_image">
+                <img src="{{ asset('images/apartemen-moiserenity-1.jpg') }}" alt="Apartemen Moiserenity" />
+            </div>
+
+            <div class="view_photos">
+                <button id="viewPhotosBtn-apartemen">Lihat Semua Foto</button>
+            </div>
+
+            <div id="photoModal-apartemen" class="modal">
+                <div class="modal-content">
+                    <span class="close-apartemen close">&times;</span>
+                    <div class="photo-gallery">
+                        <img src="{{ asset('images/apartemen-moiserenity-2.jpg') }}" alt="Gallery" />
+                        <img src="{{ asset('images/apartemen-moiserenity-3.jpg') }}" alt="Gallery" />
+                        <img src="{{ asset('images/apartemen-moiserenity-4.jpg') }}" alt="Gallery" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="villa_description">
+                <h3>Apartemen</h3>
+                <p>
+                    Villa Eldy Cemagi terletak di kawasan Canggu, Bali. Villa modern dengan pemandangan sawah yang
+                    indah. Dirancang untuk liburan santai dengan kolam renang pribadi dan dekorasi mewah.
+                </p>
+            </div>
+
+            <div class="villa_facilities">
+                <h3>Fasilitas</h3>
+                <ul>
+                    <li><i class="ri-hotel-bed-line"></i> 5 Kamar Tidur</li>
+                    <li><i class="ri-water-flash-line"></i> Kolam Renang Infinity</li>
+                    <li><i class="ri-wifi-line"></i> Wi-Fi Super Cepat</li>
+                    <li><i class="ri-parking-box-line"></i> Area Parkir</li>
+                    <li><i class="ri-restaurant-line"></i> Dapur Lengkap</li>
+                    <li><i class="ri-service-line"></i> Layanan Kebersihan Harian</li>
+                    <li><i class="ri-landscape-line"></i> Pemandangan Sawah</li>
+                </ul>
+            </div>
+
+            <div class="villa_location_detail">
+                <h3>Detail Lokasi</h3>
+                <p>
+                    Jalan Pantai Cemagi, Canggu, Bali - dekat dengan Pantai Berawa dan Pura Tanah Lot.
+                </p>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4874.873266765303!2d107.57933957587457!3d-6.793958566447069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e19240d21877%3A0xe580b95ef9006921!2sVilla%20Cannary!5e1!3m2!1sen!2sid!4v1755442929440!5m2!1sen!2sid"
+                        width="600" height="450" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="price_box">
+                <h3>Harga</h3>
+                <p class="villa_price">Rp 1.200.000<span>/night</span></p>
+                <p class="price_note">
+                    Termasuk: Kolam renang, WiFi, dapur, air mineral, dan area parkir.
+                </p>
+            </div>
+
+            <div class="villa_actions">
                 <p>Tertarik Menginap di Apartemen Moiserenity?</p>
                 <h3>Rp 900.000<span>/night</span></h3>
-                <a href="{{ route('booking.create', ['property' => 'Villa Cannary']) }}" class="book_btn">Pesan
-                    Sekarang</a>
-
+                <a href="{{ route('booking.create', ['property' => 'Apartemen Moisernity', 'price' => 900000]) }}"
+                    class="book_btn">Pesan Sekarang</a>
             </div>
         </div>
         @endif

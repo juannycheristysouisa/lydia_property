@@ -29,50 +29,30 @@ body {
     padding: 0 20px;
 }
 
-/* Navigation */
 /* ==============================
    HEADER / NAVBAR
 =================================*/
-header {
-    background: #ffffff;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
 .navbar {
     background: var(--white);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-bottom: none;
-    box-shadow: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    height: 80px;
     z-index: 1000;
-}
-
-.navbar::after {
-    content: none !important;
-    display: none !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
 }
 
 .nav-container {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 20px;
-    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-/* Logo tetap di kiri */
-.nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
 .nav-logo img {
@@ -80,57 +60,31 @@ header {
     object-fit: contain;
 }
 
-/* Menu tetap di kanan */
 .nav-menu {
     display: flex;
     align-items: center;
     gap: 2rem;
     list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
 .nav-link {
     text-decoration: none;
     color: var(--text-dark);
     font-weight: 600;
-    transition: color 0.3s;
+    transition: 0.3s;
 }
 
 .nav-link:hover {
     color: var(--primary-color);
 }
 
-.custom-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.custom-navbar .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.custom-navbar .nav-logo img {
-    height: 60px;
-}
-
-.custom-navbar .nav-menu {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-}
-
-/* Hamburger menu hidden di desktop */
-/* Hamburger menu hidden di desktop */
+/* Hamburger Menu */
 .hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
     gap: 5px;
+    z-index: 1100;
 }
 
 .hamburger span {
@@ -138,26 +92,47 @@ header {
     height: 3px;
     background: var(--text-dark);
     border-radius: 2px;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
-/* Saat layar kecil (max-width 768px) */
+/* RESPONSIVE NAVBAR */
+/* RESPONSIVE NAVBAR REVISED */
 @media (max-width: 768px) {
     .nav-menu {
         position: absolute;
-        top: 80px;
-        right: 0;
+        top: 80px; /* Sesuai tinggi navbar */
+        right: -100%;
         width: 100%;
+        /* TINGGI DISESUAIKAN: height auto agar tidak memenuhi layar */
+        height: auto;
+        max-height: 400px; /* Batas maksimal agar tidak terlalu panjang */
         background: white;
         flex-direction: column;
-        align-items: center;
-        display: none;
-        padding: 20px 0;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        /* PADDING DISESUAIKAN: Lebih ramping */
+        padding: 1.5rem 0;
+        gap: 0.5rem;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        transition: 0.4s ease-in-out;
+        display: flex;
+        z-index: 999;
+        overflow-y: auto; /* Jaga-jaga jika menu sangat banyak */
     }
 
     .nav-menu.active {
-        display: flex;
+        right: 0;
+    }
+
+    .nav-link {
+        width: 100%;
+        text-align: center;
+        /* Padding antar link dikurangi agar lebih compact */
+        padding: 12px 0;
+        font-size: 1.1rem;
+        border-bottom: 1px solid #f0f0f0; /* Garis tipis pemisah */
+    }
+
+    .nav-link:last-child {
+        border-bottom: none;
     }
 
     .hamburger {
@@ -165,12 +140,23 @@ header {
     }
 }
 
+/* Animasi X untuk Hamburger */
+.hamburger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 /* ==============================
    HERO SECTION
 =================================*/
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url("/images/Hero-bg.png") center/cover no-repeat;
+        url("/images/Hero-bg.PNG") center/cover no-repeat;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -619,74 +605,84 @@ header {
     transform: scale(1.05);
 }
 
-/* ===== Modal Galeri ===== */
+/* Container Utama Modal */
 .modal {
     display: none;
     position: fixed;
-    z-index: 999;
+    z-index: 2000; /* Pastikan di atas navbar */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Gelapkan background */
+    backdrop-filter: blur(5px); /* Efek blur estetik */
     overflow-y: auto;
-    background-color: rgba(0, 0, 0, 0.85);
-    padding: 40px 0;
 }
 
-.modal-content {
-    background: #fff;
-    margin: auto;
-    border-radius: 10px;
-    max-width: 90%;
-    padding: 20px;
-    position: relative;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Tombol close */
+/* Perbaikan Tombol Close agar muncul di atas gambar */
+/* Perbaikan Tombol Close agar Ukurannya Pas */
 .close {
-    color: #333;
     position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 30px;
+    top: 15px;
+    right: 15px;
+    color: #e63946; /* Warna merah agar kontras */
+    font-size: 24px; /* Diperkecil dari sebelumnya */
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
+    z-index: 9999;
+
+    /* Membuat lingkaran putih yang lebih kecil */
+    background: #ffffff;
+    width: 35px; /* Ukuran lingkaran dikurangi */
+    height: 35px; /* Ukuran lingkaran dikurangi */
+    border-radius: 50%;
+
+    /* Posisi X tepat di tengah lingkaran */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Efek bayangan halus */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease;
 }
 
 .close:hover {
-    color: #1d3a4a;
+    transform: scale(1.1);
+    background: #f8f9fa;
 }
 
-/* Galeri foto */
+/* Konten di dalam Modal */
+.modal-content {
+    background-color: #ffffff;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 1000px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Galeri Gambar di dalam Modal */
 .photo-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
 }
 
 .photo-gallery img {
     width: 100%;
-    border-radius: 10px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
 }
 
 .photo-gallery img:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 /*inspiration section*/
@@ -884,10 +880,10 @@ header {
 
 /* =============== BOOKING FORM SECTION =============== */
 .booking-section {
-    margin-top: 20px; /* ✅ bikin form turun biar gak ketutup navbar */
-    padding: 60px 20px;
+    padding: 120px 20px 60px; /* Padding atas ditambah dari 60px ke 120px */
     display: flex;
     justify-content: center;
+    background-color: #f7f9fc; /* Konsisten dengan background body */
 }
 
 .booking-section .container {
@@ -947,21 +943,6 @@ textarea {
     min-height: 90px;
 }
 
-/* Ringkasan Pesanan */
-#bookingSummary {
-    background-color: #f8f9fa;
-    border: 1px solid #e1e1e1;
-    border-radius: 8px;
-    padding: 16px;
-    margin-top: 10px;
-}
-
-#bookingSummary p {
-    margin: 5px 0;
-    color: #333;
-    font-size: 15px;
-}
-
 /* Tombol Submit */
 .submit-button {
     width: 100%;
@@ -991,47 +972,47 @@ textarea {
     }
 }
 
-/* ===== Gaya untuk guest selector (ringkasan + dropdown) ===== */
 .guest-dropdown {
     position: relative;
-}
-
-.guest-summary {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .guest-options {
     display: none;
     background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 1rem;
-    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 5px; /* Jarak dari input */
     position: absolute;
     width: 100%;
-    z-index: 10;
+    z-index: 100;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Bayangan lebih halus */
 }
 
-.guest-item {
+/* Mempercantik input counter */
+.counter {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    gap: 10px;
 }
 
 .counter button {
-    width: 28px;
-    height: 28px;
-    border: 1px solid #ccc;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #1d3a4a;
     background: white;
-    border-radius: 6px;
-    font-size: 18px;
+    color: #1d3a4a;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter button:hover {
+    background: #1d3a4a;
+    color: white;
 }
 
 .counter input {
@@ -1057,6 +1038,35 @@ textarea {
     background: #f5f6f8;
     padding: 1rem;
     border-radius: 10px;
+}
+
+#bookingSummary {
+    margin-top: 20px;
+    background-color: #f8f9fa;
+    border-left: 5px solid #1d3a4a; /* Aksen warna biru tua */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.summary-item:last-child {
+    margin-bottom: 0;
+    padding-top: 10px;
+    border-top: 1px dashed #ccc;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+#summaryNights,
+#summaryTotal {
+    color: #e63946; /* Warna merah untuk angka agar menonjol */
 }
 
 .submit-button {

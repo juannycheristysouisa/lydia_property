@@ -10,7 +10,7 @@ class BookingController extends Controller
     // Tambahkan method ini untuk menampilkan form booking
     public function create()
     {
-        return view('booking.create');  
+        return view('landing.booking');  
     }
 
     // Method store Anda sudah ada, tapi pastikan validasi lengkap

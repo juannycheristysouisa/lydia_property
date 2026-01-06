@@ -1,4 +1,9 @@
-// === ScrollReveal animation setup ===
+/**
+ * LYDIA PROPERTY - Integrated JavaScript
+ * Features: Hamburger Menu, Animations, Booking Logic, PDF Generator, WhatsApp Integration, & Photo Modals
+ */
+
+// 1. SCROLL REVEAL SETUP
 const scrollRevealOption = {
     distance: "50px",
     origin: "bottom",
@@ -6,324 +11,245 @@ const scrollRevealOption = {
     easing: "ease-in-out",
 };
 
-// Animasi di halaman utama (Tidak perlu DOMContentLoaded)
 if (typeof ScrollReveal !== "undefined") {
-    ScrollReveal().reveal(".hero-content h1", { ...scrollRevealOption });
-    ScrollReveal().reveal(".hero-content p", {
-        ...scrollRevealOption,
-        delay: 400,
-    });
-    ScrollReveal().reveal(".cta-button", { ...scrollRevealOption, delay: 800 });
-    ScrollReveal().reveal(".property_card", {
-        ...scrollRevealOption,
-        interval: 300,
-    });
-
-    // Animasi halaman detail (Jika ada)
-    if (document.querySelector(".detail_section")) {
-        ScrollReveal().reveal(".detail_image", {
-            distance: "60px",
-            origin: "top",
-            duration: 800,
-        });
-        ScrollReveal().reveal(".villa_name", { delay: 300 });
-        ScrollReveal().reveal(".price_box", { delay: 500 });
-        ScrollReveal().reveal(".villa_description", { delay: 600 });
-        ScrollReveal().reveal(".villa_facilities", { delay: 700 });
-        ScrollReveal().reveal(".villa_actions", { delay: 900 });
-    }
-
-    // ScrollReveal untuk teks "Need Inspiration"
-    ScrollReveal().reveal(".inspiration_section h2", {
-        distance: "40px",
-        origin: "bottom",
-        duration: 1000,
-        delay: 200,
-    });
-    ScrollReveal().reveal(".inspiration_section p", {
-        distance: "40px",
-        origin: "bottom",
-        duration: 1000,
-        delay: 400,
-    });
-
-    ScrollReveal().reveal(".villa_facilities", {
-        delay: 500,
-        distance: "50px",
-        origin: "bottom",
-        duration: 800,
-    });
-
-    // Animasi untuk halaman login admin
-    if (document.querySelector(".login-card")) {
-        ScrollReveal().reveal(".login-icon", {
-            distance: "30px",
-            origin: "top",
-            duration: 800,
-            delay: 200,
-        });
-        ScrollReveal().reveal(".login-card h3", {
-            distance: "20px",
-            origin: "bottom",
-            duration: 600,
-            delay: 400,
-        });
-        ScrollReveal().reveal(".login-header p", {
-            distance: "20px",
-            origin: "bottom",
-            duration: 600,
-            delay: 500,
-        });
-        ScrollReveal().reveal(".form-group", {
-            distance: "30px",
-            origin: "bottom",
-            duration: 700,
-            delay: 600,
-            interval: 200,
-        });
-        ScrollReveal().reveal(".btn-login", {
-            distance: "20px",
-            origin: "bottom",
-            duration: 600,
-            delay: 1000,
-        });
-        ScrollReveal().reveal(".login-footer", {
-            distance: "20px",
-            origin: "bottom",
-            duration: 600,
-            delay: 1100,
-        });
-    }
+    const sr = ScrollReveal();
+    sr.reveal(".hero-content h1", { ...scrollRevealOption });
+    sr.reveal(".hero-content p", { ...scrollRevealOption, delay: 400 });
+    sr.reveal(".property_card", { ...scrollRevealOption, interval: 300 });
 }
 
-// === Auto-scroll horizontal inspirasi (opsional) ===
-const inspiration = document.querySelector(".inspiration_wrapper");
-if (inspiration) {
-    const inspirationImages = Array.from(inspiration.children);
-    inspirationImages.forEach((item) => {
-        const duplicateNode = item.cloneNode(true);
-        duplicateNode.setAttribute("aria-hidden", true);
-        inspiration.appendChild(duplicateNode);
-    });
-}
-
-// =======================================================
-// === LOGIKA UTAMA YANG MENUNGGU DOM DIMUAT ===
-// =======================================================
+// 2. DOM CONTENT LOADED
 document.addEventListener("DOMContentLoaded", function () {
-    // --- Logika Navbar Hamburger ---
-    const hamburger = document.getElementById("hamburger");
+    // --- A. LOGIKA MENU HAMBURGER (TAMBAHAN BARU) ---
+    const menuIcon = document.getElementById("menu-icon");
     const navMenu = document.querySelector(".nav-menu");
-    const navLinks = document.querySelectorAll(".nav-link");
 
-    if (hamburger && navMenu) {
-        hamburger.addEventListener("click", () => {
+    if (menuIcon && navMenu) {
+        menuIcon.addEventListener("click", function (e) {
+            e.stopPropagation(); // Mencegah klik menyebar
             navMenu.classList.toggle("active");
-            hamburger.classList.toggle("active");
+
+            // Animasi ganti icon (dari garis tiga ke silang)
+            const icon = menuIcon.querySelector("i");
+            if (navMenu.classList.contains("active")) {
+                icon.classList.replace("ri-menu-line", "ri-close-line");
+            } else {
+                icon.classList.replace("ri-close-line", "ri-menu-line");
+            }
         });
 
-        navLinks.forEach((link) => {
+        // Klik link di dalam menu otomatis menutup menu
+        document.querySelectorAll(".nav-menu a").forEach((link) => {
             link.addEventListener("click", () => {
                 navMenu.classList.remove("active");
-                hamburger.classList.remove("active");
+                menuIcon
+                    .querySelector("i")
+                    .classList.replace("ri-close-line", "ri-menu-line");
             });
         });
 
-        window.addEventListener("resize", () => {
-            if (window.innerWidth > 768) {
+        // Klik di mana saja di luar menu otomatis menutup menu
+        document.addEventListener("click", (e) => {
+            if (!navMenu.contains(e.target) && !menuIcon.contains(e.target)) {
                 navMenu.classList.remove("active");
-                hamburger.classList.remove("active");
+                if (menuIcon.querySelector("i")) {
+                    menuIcon
+                        .querySelector("i")
+                        .classList.replace("ri-close-line", "ri-menu-line");
+                }
             }
         });
     }
 
-    // --- Logika Tombol Aksi Umum ---
-    const contactBtn = document.querySelector(".contact_btn");
-    const bookBtn = document.querySelector(".book_btn");
+    // --- B. Logika Modal Foto (VERSI PERBAIKAN) ---
+    function initPhotoModal(btnId, modalId) {
+        const btn = document.getElementById(btnId);
+        const modal = document.getElementById(modalId);
 
-    if (contactBtn) {
-        contactBtn.addEventListener("click", () => {
-            alert("Hubungi kami di WhatsApp: +62 812-3456-7890");
-        });
-    }
+        if (btn && modal) {
+            // Cari tombol close khusus yang ada DI DALAM modal ini saja
+            const closeBtn = modal.querySelector(".close");
 
-    // --- Logika Detail Properti dan Modal Dinamis ---
+            btn.addEventListener("click", () => {
+                modal.style.display = "block";
+                document.body.style.overflow = "hidden";
+            });
 
-    function getQueryParam(param) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(param);
-    }
+            const closeModal = () => {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            };
 
-    const propertyId = getQueryParam("id");
-    const isDetailPage = window.location.pathname.includes("detail.html"); // Cek URL
-
-    if (isDetailPage && propertyId) {
-        // 1. Sembunyikan semua properti, lalu tampilkan yang target
-        const allProperties = document.querySelectorAll(".property-detail");
-        allProperties.forEach((property) => {
-            property.style.display = "none";
-        });
-
-        const targetProperty = document.getElementById(propertyId);
-
-        if (targetProperty) {
-            // Ini adalah baris ajaib yang membuat konten muncul
-            targetProperty.style.display = "block";
-
-            // 2. Inisialisasi Modal Galeri Dinamis untuk Properti yang Aktif
-            const modalId = `photoModal-${propertyId}`;
-            const btnId = `viewPhotosBtn-${propertyId}`;
-            const closeClass = `close-${propertyId}`;
-
-            const modal = document.getElementById(modalId);
-            const btn = document.getElementById(btnId);
-            // Gunakan querySelector pada elemen induk (targetProperty) agar lebih spesifik
-            const closeBtn = modal
-                ? modal.querySelector(`.${closeClass}`)
-                : null;
-
-            if (btn && modal && closeBtn) {
-                btn.addEventListener("click", () => {
-                    modal.style.display = "block";
-                    document.body.style.overflow = "hidden";
-                });
-
-                closeBtn.addEventListener("click", () => {
-                    modal.style.display = "none";
-                    document.body.style.overflow = "auto";
-                });
-
-                window.addEventListener("click", (event) => {
-                    if (event.target === modal) {
-                        modal.style.display = "none";
-                        document.body.style.overflow = "auto";
-                    }
-                });
+            if (closeBtn) {
+                closeBtn.addEventListener("click", closeModal);
             }
-        } else {
-            console.warn(
-                "Properti dengan ID: " +
-                    propertyId +
-                    " tidak ditemukan, menampilkan halaman kosong."
-            );
+
+            // Klik di luar area modal untuk menutup
+            window.addEventListener("click", (e) => {
+                if (e.target === modal) closeModal();
+            });
         }
     }
 
-    // === Tombol Pesan Sekarang ===
-    const pesanButtons = document.querySelectorAll(".pesan-btn");
+    // Inisialisasi ulang dengan parameter yang lebih sederhana
+    initPhotoModal("viewPhotosBtn-cannary", "photoModal-cannary");
+    initPhotoModal("viewPhotosBtn-eldy", "photoModal-eldy");
+    initPhotoModal("viewPhotosBtn-umaberawa", "photoModal-umaberawa");
+    initPhotoModal("viewPhotosBtn-apartemen", "photoModal-apartemen");
 
-    pesanButtons.forEach((btn) => {
-        btn.addEventListener("click", function () {
-            const propertyName = this.getAttribute("data-property");
-            const price = this.getAttribute("data-price");
+    // --- C. Logika Booking ---
+    const urlParams = new URLSearchParams(window.location.search);
+    const propName = urlParams.get("property");
+    const propPrice = urlParams.get("price");
 
-            if (propertyName && price) {
-                window.location.href = `booking.html?property=${encodeURIComponent(
-                    propertyName
-                )}&price=${price}`;
-            } else {
-                alert("Data properti tidak ditemukan!");
-            }
-        });
-    });
+    if (propName && document.getElementById("propertyName"))
+        document.getElementById("propertyName").value = propName;
+    if (propPrice && document.getElementById("pricePerNight"))
+        document.getElementById("pricePerNight").value = propPrice;
 
-    // === Logika Tombol "Pesan Sekarang" ===
-    document.addEventListener("click", function (e) {
-        if (e.target.classList.contains("book_btn")) {
-            const property = e.target.getAttribute("data-property");
-            const price = e.target.getAttribute("data-price");
-
-            // Arahkan ke halaman booking dengan parameter di URL
-            window.location.href = `booking.html?property=${encodeURIComponent(
-                property
-            )}&price=${price}`;
-        }
-    });
-
-    // Dropdown toggle
-    const guestDropdown = document.getElementById("guestDropdown");
     const guestSummary = document.getElementById("guestSummary");
     const guestOptions = document.getElementById("guestOptions");
     const selesaiBtn = document.getElementById("selesaiBtn");
 
-    if (guestSummary && guestOptions && selesaiBtn) {
+    if (guestSummary && guestOptions) {
         guestSummary.addEventListener("click", () => {
             guestOptions.style.display =
                 guestOptions.style.display === "block" ? "none" : "block";
         });
-
+    }
+    if (selesaiBtn) {
         selesaiBtn.addEventListener("click", () => {
-            updateGuestText();
             guestOptions.style.display = "none";
         });
     }
 
-    // Ganti nilai dewasa/anak
-    function changeValue(id, change) {
-        const input = document.getElementById(id);
-        if (input) {
-            let value = parseInt(input.value) + change;
-            if (value < 0) value = 0;
-            input.value = value;
-            updateGuestText();
-            updateSummary();
-        }
+    // Preview Bukti Transfer
+    const proofInput = document.getElementById("proof_upload");
+    const pdfProofImgRender = document.getElementById("pdf_proof_img_render");
+
+    if (proofInput && pdfProofImgRender) {
+        proofInput.addEventListener("change", function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    pdfProofImgRender.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
     }
 
-    // Update teks “2 dewasa · 1 anak”
-    function updateGuestText() {
-        const dewasaInput = document.getElementById("dewasa");
-        const anakInput = document.getElementById("anak");
-        const guestText = document.getElementById("guestText");
-        if (dewasaInput && anakInput && guestText) {
-            const dewasa = dewasaInput.value;
-            const anak = anakInput.value;
-            guestText.textContent = `${dewasa} dewasa · ${anak} anak`;
-        }
-    }
-
-    // Update otomatis ringkasan harga
     const checkIn = document.getElementById("check_in");
     const checkOut = document.getElementById("check_out");
-    const summaryPrice = document.getElementById("summaryPrice");
-    const summaryNights = document.getElementById("summaryNights");
-    const summaryTotal = document.getElementById("summaryTotal");
-
-    if (checkIn && checkOut) {
-        checkIn.addEventListener("change", updateSummary);
-        checkOut.addEventListener("change", updateSummary);
-    }
 
     function updateSummary() {
-        const price = 500000; // Harga per malam
-        const inDate = new Date(checkIn.value);
-        const outDate = new Date(checkOut.value);
+        const summaryNights = document.getElementById("summaryNights");
+        const summaryTotal = document.getElementById("summaryTotal");
+        const pPerNight =
+            parseInt(document.getElementById("pricePerNight")?.value) || 0;
 
-        if (
-            inDate &&
-            outDate &&
-            outDate > inDate &&
-            summaryNights &&
-            summaryTotal
-        ) {
-            const nights = Math.ceil(
+        if (checkIn?.value && checkOut?.value) {
+            const inDate = new Date(checkIn.value);
+            const outDate = new Date(checkOut.value);
+            const diffDays = Math.ceil(
                 (outDate - inDate) / (1000 * 60 * 60 * 24)
             );
-            summaryNights.textContent = nights;
 
-            const dewasaInput = document.getElementById("dewasa");
-            const anakInput = document.getElementById("anak");
-            if (dewasaInput && anakInput) {
-                const dewasa = parseInt(dewasaInput.value);
-                const anak = parseInt(anakInput.value);
-                const totalTamu = dewasa + anak;
-
-                const total = nights * price + totalTamu * 50000; // Tambahan biaya per tamu
-                summaryTotal.textContent = total.toLocaleString("id-ID");
+            if (diffDays > 0 && summaryNights && summaryTotal) {
+                summaryNights.textContent = diffDays;
+                summaryTotal.textContent = (
+                    diffDays * pPerNight
+                ).toLocaleString("id-ID");
+            } else if (summaryNights && summaryTotal) {
+                summaryNights.textContent = "0";
+                summaryTotal.textContent = "0";
             }
         }
     }
 
-    // Expose changeValue to global scope if needed (e.g., for onclick in HTML)
-    window.changeValue = changeValue;
+    if (checkIn) checkIn.addEventListener("change", updateSummary);
+    if (checkOut) checkOut.addEventListener("change", updateSummary);
+
+    // --- D. Submit Form & Generator PDF ---
+    const bookingForm = document.getElementById("bookingForm");
+    if (bookingForm) {
+        bookingForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const totalBayar =
+                document.getElementById("summaryTotal").textContent;
+            if (totalBayar === "0")
+                return alert("Harap pilih tanggal yang valid!");
+            if (!proofInput.files[0])
+                return alert("Harap upload bukti transfer!");
+
+            const submitBtn = document.querySelector(".submit-button");
+            submitBtn.innerText = "Mencetak Voucher...";
+            submitBtn.disabled = true;
+
+            try {
+                document.getElementById("pdf_name").innerText =
+                    ": " + document.getElementById("name").value;
+                document.getElementById("pdf_property").innerText =
+                    ": " + document.getElementById("propertyName").value;
+                document.getElementById("pdf_checkin").innerText =
+                    ": " + checkIn.value;
+                document.getElementById("pdf_checkout").innerText =
+                    ": " + checkOut.value;
+                document.getElementById("pdf_guests").innerText =
+                    ": " + document.getElementById("guestText").textContent;
+                document.getElementById("pdf_total").innerText =
+                    ": Rp " + totalBayar;
+
+                const { jsPDF } = window.jspdf;
+                const canvas = await html2canvas(
+                    document.getElementById("invoiceTemplate"),
+                    { scale: 2 }
+                );
+                const pdf = new jsPDF("p", "mm", "a4");
+                pdf.addImage(
+                    canvas.toDataURL("image/png"),
+                    "PNG",
+                    0,
+                    0,
+                    210,
+                    0
+                );
+                pdf.save(
+                    `Voucher_${document.getElementById("name").value}.pdf`
+                );
+
+                const name = document.getElementById("name").value;
+                const property = document.getElementById("propertyName").value;
+                const textWA = `Halo Admin,%0A*LUNAS* - Booking Properti%0A*Nama:* ${name}%0A*Unit:* ${property}%0A*Total:* Rp ${totalBayar}%0A%0ABukti transfer terlampir.`;
+                window.open(
+                    `https://wa.me/6285333702719?text=${textWA}`,
+                    "_blank"
+                );
+            } catch (err) {
+                console.error(err);
+                alert("Terjadi kesalahan teknis.");
+            } finally {
+                submitBtn.innerText = "Lanjutkan ke Pembayaran";
+                submitBtn.disabled = false;
+            }
+        });
+    }
 });
+
+// 3. GLOBAL FUNCTIONS
+window.changeValue = function (id, change) {
+    const input = document.getElementById(id);
+    if (input) {
+        let val = parseInt(input.value) + change;
+        input.value = val < 0 ? 0 : val;
+
+        const dewasa = document.getElementById("dewasa").value;
+        const anak = document.getElementById("anak").value;
+        const guestText = document.getElementById("guestText");
+        if (guestText) {
+            guestText.textContent = `${dewasa} dewasa · ${anak} anak`;
+        }
+    }
+};

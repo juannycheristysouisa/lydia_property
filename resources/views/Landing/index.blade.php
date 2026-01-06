@@ -22,17 +22,13 @@
                 <a href="{{ route('landing.index') }}" class="nav-logo">
                     <img src="images/Logo-ly.png" alt="Lydia Property" />
                 </a>
+
                 <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#property" class="nav-link">Property</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link">Contact</a>
-                    </li>
+                    <li class="nav-item"><a href="#home" class="nav-link">Beranda</a></li>
+                    <li class="nav-item"><a href="#property" class="nav-link">Property</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
+
                 <div class="hamburger" id="hamburger">
                     <span></span>
                     <span></span>

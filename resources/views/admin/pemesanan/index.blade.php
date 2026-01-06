@@ -15,6 +15,7 @@
                     <th>Dewasa</th>
                     <th>Anak</th>
                     <th>Total Harga</th>
+                    <th>Tanggal Pesan</th>
                 </tr>
             </thead>
 
@@ -23,13 +24,12 @@
                 <tr>
                     <td>{{ $b->nama_lengkap }}</td>
                     <td>{{ $b->nik }}</td>
-                    <td>{{ $b->checkin }}</td>
-                    <td>{{ $b->checkout }}</td>
+                    <td>{{ \Carbon\Carbon::parse($b->checkin)->format('d M Y') }}</td>
+                    <td>{{ \Carbon\Carbon::parse($b->checkout)->format('d M Y') }}</td>
                     <td>{{ $b->dewasa }}</td>
                     <td>{{ $b->anak }}</td>
-                    <td>Rp {{ number_format($b->total_harga) }}</td>
+                    <td>**Rp {{ number_format($b->total_harga, 0, ',', '.') }}**</td>
                     <td>{{ $b->created_at->format('d M Y') }}</td>
-
                 </tr>
                 @endforeach
             </tbody>
