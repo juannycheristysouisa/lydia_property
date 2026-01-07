@@ -147,8 +147,8 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100 py-3 fw-bold submit-button">Lanjutkan ke
-                    Pembayaran</button>
+                <button type="submit" class="btn btn-primary w-100 py-3 fw-bold submit-button">Submit & Share
+                    pdf</button>
             </form>
         </div>
     </section>
